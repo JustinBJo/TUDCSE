@@ -1,4 +1,4 @@
-# Non-parametric Density Estimation (Parzen, K-NN, Naive Bayes)
+# Generative models: Non-parametric Density Estimation
 
 ---
 ## 0. Non-parametric density estimation

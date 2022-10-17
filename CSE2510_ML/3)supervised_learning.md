@@ -1,12 +1,13 @@
-# Parametric densities
+# Supervised Learning: Discriminative vs Generative
 
 ---
 ## 0. Models
 We do not have the true distributions but only the sampled dataset from them. In order to classify the objects and train the model,
 we have to approximate p(y|x) or p(x|y),p(y). <br>
-We will consider:
+We have few ways to divide different approaches:
 - Discriminative vs generative models
 - Parametric vs non-parametric models
+- Linear vs non-linear models
 
 ## 1. Discriminative models vs Generative models
 1. Discriminative model

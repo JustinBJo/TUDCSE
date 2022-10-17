@@ -1,4 +1,4 @@
-# Gaussian Distribution and Classifiers (QDA, LDA, Nearest Mean)
+# Generative models: Parametric(Gaussian) Density Estimation
 
 ---
 ## 1. Gaussian distribution

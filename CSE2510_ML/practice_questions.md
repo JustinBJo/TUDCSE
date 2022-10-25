@@ -223,3 +223,107 @@ log(p(Y=1|x2)/p(Y=0|x2)) = log(1/(1-e^-x2)) - log(-e^-x2 / (1-e^-x2))
   different for each group and thus will allow the bank to have a larger profit.
 
 ## Week 6. Non-Linear Discriminative Models
+
+### 1. Decision Tree Properties
+- Q. True or false?
+  - A) Decision trees are non-linear classifiers.
+  - B) Decision Trees are parametric classifiers.
+  - C) Decision trees grow depending on the complexity of the training data.
+  - D) The structure of the decision tree is predefined.
+  - E) Decision trees explicitly model the joint probability distribution p(x|y) of each class and use Bayes Rule to compute the posterior probability p(y|x).
+<br><Br>
+- A.
+  - A) True
+  - B) True
+  - C) True
+    - The more complex the data is, the more decision nodes there have to be.
+  - D) False
+    - We can prune them to avoid overfitting as well.
+  - E) False
+    - Decision Tree is a discriminative model; the description is about generative models
+
+### 2. Entropy
+- Q. In building a decision tree, entropy is used in the determination of the “best” attribute to split the node on. What does entropy measure?
+  - The number of positive examples in the subset after splitting the data.
+  - The difference between the number of positive examples in the subset before and after the split.
+  - The pureness of the subset of examples after splitting the data.
+  - The improvement in pureness of the subset of examples after splitting the data compared to the pureness before the split.
+<br><br>
+- A. 3. The pureness
+<br><Br>
+- Entropy is one of the measure of impurity we use to calculate improvement.
+
+### 3. Split calculation
+Easy question; skipped
+
+### 4. Decision Trees selection
+- Q. A decision tree is created by splitting the data sequentially on the basis of an attribute. How do you determine which attribute to split the data on?
+<br><br>
+- A. You pick the best attribute, where 'best' is defined as the split that leads to the highest information gain.
+
+### 5. Perceptron Definition
+- Q. Here you see a graphical depiction of a perceptron. What do the x, w, and y denote?<br>
+![img_50.png](img_50.png)<br>
+<br>
+- A. x = input values / w = weights / y = output value
+
+### 6. Perceptron Properties
+- Q. A perceptron is a linear classifier. True or False?
+<br><br>
+- A. True
+<BR><BR>
+- A single perceptron is a linear classifier; multiple makes it nonlinear.
+
+### 7. MLP Properties
+- Q. Multi-layer perceptrons are
+  - Linear/Nonlinear
+  - Discriminative/Generative model
+<BR><BR>
+- A. Nonlinear, Discriminative
+
+### 8. Backpropagation
+- Q. Backpropagation is a method to 
+  - Efficiently calculate the gradient of the loss of a neural network
+  - Efficiently calculate the loss of a neural network
+  - Revert the network back to a previous state in which it performed better
+  - Revert the network back to the initial state before training
+<BR><BR>
+- A. 2. gradient of loss of a neural network
+<BR><BR>
+- For each layer, we calculate the gradient of the error function with respect to each weight.
+  The gradient vector indicates the direction of the highest increase in a function, while we want the highest decrease
+
+### 9. MLP Flow
+- Q. Here you see a graphical depiction of a multi-layer perceptron. How is the value of the hidden units calculated?<br>
+![img_51.png](img_51.png)<br>
+<BR>
+- A. An activation function is applied to the multiplication of the input x and the weights w, plus the bias x0.
+<BR><BR>
+- An activation function is how we work with x, w and bias. It is used to determine the output of neural network (like yes or no)
+
+### 10. MLP Flow 2
+easy question; skipped
+
+### 11. MLP Calculation
+![img_52.png](img_52.png)<br>
+- Q. Consider the multi-layer perceptron depicted in the figure, where the numbers next to the edges denote the weight of each connection. Suppose we use a logistic activation function for both the hidden nodes and the output node.
+<br>
+- If the input to this model is xT=[5,−2], what will the value for y^ be?
+  - y^=0.0
+  - 0.0<y^<0.5
+  - y^=0.5
+  - 0.5<y^<1.0
+  - y^=1.0
+<BR><BR>
+- A. 0.0<y^<0.5
+
+### 12. ERM, MLP, Decision Trees
+- Q. In this course, we used the framework of Empirical Risk Minimization to introduce several machine learning methods.
+  - Multi-layer Perceptrons are a form of Empirical Risk Minimization, Decision Trees are not
+  - Decision Trees are a form of Empirical Risk Minimization, Multi-layer Perceptrons are not
+  - Both Multi-layer Perceptrons and Decision Trees are a form of Empirical Risk Minimization
+  - Neither Multi-layer Perceptrons nor Decision Trees are a form of Empirical Risk Minimization
+<BR><BR>
+- A. 3. Both
+<BR><BR>
+- Pruning is a way to minimise risk in decision tree; Backpropagation for MLP.

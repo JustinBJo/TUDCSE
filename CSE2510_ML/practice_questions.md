@@ -166,4 +166,60 @@ log(p(Y=1|x2)/p(Y=0|x2)) = log(1/(1-e^-x2)) - log(-e^-x2 / (1-e^-x2))
 * Book says K-1 classifiers for K classes
 
 ## Week 5. Biases & Fairness
+
+### 1. Bias
+- Q. Imagine you are going home after a party, late at night. There are two routes you can take: a shorter one where you will have to walk through an alleyway where regularly scary-looking people hang out and a longer one where you will be able to walk through a residential neighbourhood. You decide to take the longer route.
+<br>Indicate all correct statements.
+  - Implicit bias causes you to be afraid of scary-looking people.
+  - Discrimination causes you to take the longer route.
+  - Explicit bias causes you to take the longer route.
+  - Explicit bias causes you to be afraid of scary-looking people.
+  - Implicit bias causes you to take the longer route.
+  - Discrimination causes you to be afraid of scary-looking people.
+<br><br>
+- A. 1 and 3
+  <br><br>
+- Implicit bias is an unconscious thought
+- Explicit bias is the action you take from that unconscious thought
+- Discrimination is an action taken based on prejudice, which is a stereotype.
+
+### 2. Racial Bias
+- Q. Amazon developed a face recognition tool that turned out to be biased: people of colour and especially women of colour, were less well classified on a gender classification task.<br>
+  What sources might have caused this bias in classification results? Explain each source in a few sentences.
+
+- A.
+  - Gender imbalance in programming team: researchers/programmers typically test for their own gender/race
+  - Training data bias: too few photos of people of colour and women of colour in the database
+
+### 3. Decision making
+- Q. The tax office has a computer system that decides which people’s tax returns need to be checked manually. Investigation of these tax returns that need to be checked manually shows an unexpected bias towards a certain group.
+<br> Who is responsible for the decisions that are made?
+  - The people who interact daily with individuals who file their tax returns.
+  - The management team.
+  - The programmers who implement the decision-making algorithm.
+  - The individuals who file their tax returns.
+
+- A. 3) the programmers.
+
+### 4. Removing Features
+- Q. Removing a sensitive feature will make sure that the trained model cannot discriminate based on the sensitive feature
+<br> Is this statement true or false?
+<br><br>
+- A. False
+<br><Br>
+- False, it may be possible that the value of the sensitive feature can be inferred from
+  the other features, and because of this reason the model can still discriminate based on the
+  sensitive feature.
+
+### 5. Profits & Fairness
+- Q. In the context of predicting whether people should receive a loan, the Independence criterion allows the bank to make a larger profit than the Separation criterion.
+  <br> Is this statement true or false?
+<br><br>
+- A. False
+<br><br>
+- False, the Independence criterium means from each group the same percentage needs
+  to be accepted. This means the bank will make a large loss, because it needs to accept people
+  that cannot pay the loan back. The Seperation criterion does allow acceptance rate to be
+  different for each group and thus will allow the bank to have a larger profit.
+
 ## Week 6. Non-Linear Discriminative Models

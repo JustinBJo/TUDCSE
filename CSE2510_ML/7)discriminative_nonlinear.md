@@ -17,7 +17,7 @@ This goes on until we get to leaves, which classify the sample.<br>
 
 ### Measure of Improvement
 #### Information gain
-![img_24.png](img_24.png)<br>
+![2510img/img_24.png](2510img/img_24.png)<br>
 where:
 - I: Impurity
 - S: Set of objects in the node
@@ -27,17 +27,17 @@ where:
 We have many choices for I: if we choose the misclassification error as I, this measures how much the 0-1 loss will decrease if we split the node into multiple nodes using feature F.<br>
 
 ##### Different choices for impurity
-![img_25.png](img_25.png)<br>
-![img_26.png](img_26.png)<br>
-![img_27.png](img_27.png)<br>
+![2510img/img_25.png](2510img/img_25.png)<br>
+![2510img/img_26.png](2510img/img_26.png)<br>
+![2510img/img_27.png](2510img/img_27.png)<br>
 An example calculation (using node entropy as I(S)):<br>
-![img_28.png](img_28.png)<br>
+![2510img/img_28.png](2510img/img_28.png)<br>
 
 #### Gain ratio
 The information gain is biased towards features with many discrete values. This means that we may overfit on such features.<br>
 We can correct this by using the intrinsic value(IV), the entropy of the feature.<br>
 We then divide the information gain by this intrinsic value to get the gain ratio.<br>
-![img_29.png](img_29.png)<br>
+![2510img/img_29.png](2510img/img_29.png)<br>
 
 ### When to stop training
 If we fit pure trees, we quickly start overfitting when we split further.
@@ -91,10 +91,10 @@ We can select random features and create a classifier on them, and we can also r
 *Random forest*: construct a large number of trees using randomly selected objects and features and combine their decisions<br>
 <br>
 Randomly selecting samples: bagging<br>
-![img_30.png](img_30.png)<br>
+![2510img/img_30.png](2510img/img_30.png)<br>
 <br>
 Randomly selecting features: random supspaces<br>
-![img_31.png](img_31.png)<br>
+![img_31.png](2510img/img_31.png)<br>
 
 ### Pros and Cons
 - Pros
@@ -125,7 +125,7 @@ A multilayer perceptron exists of several layers of connected perceptrons. A sin
 - y: output unit
 
 Visualisation:<br>
-![img_32.png](img_32.png)<br>
+![img_32.png](2510img/img_32.png)<br>
 
 #### Single class case
 The easiest way of calculating y would be just computing y = wTx + b.
@@ -151,7 +151,7 @@ We use two consecutive steps:
 3. Output layer: only does computations.
 
 Example: XOR gate<br>
-![img_33.png](img_33.png)<br>
+![img_33.png](2510img/img_33.png)<br>
 
 
 ### Perceptron training

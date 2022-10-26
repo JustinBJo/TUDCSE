@@ -29,11 +29,11 @@ We could use either:
   - lower d if two elements are similar
 
 Similarity of two elements depends on their distances. We have many ways to define distances:<br>
-![img_53.png](img_53.png)<br>
+![2510img/img_53.png](2510img/img_53.png)<br>
 
 #### 2. Cluster evaluation
 We then need a criterion function to evaluate clustering:<br>
-![img_54.png](img_54.png)<br>
+![2510img/img_54.png](2510img/img_54.png)<br>
 
 We could use either:
 - Intra-cluster cohesion (compactness)
@@ -45,7 +45,7 @@ We could use either:
 
 #### 3. Clustering algorithms
 Lastly, we need an algorithm to compute clustering (e.g. by optimizing the criterion function). There are a few options:<BR>
-![img_55.png](img_55.png)<br>
+![2510img/img_55.png](2510img/img_55.png)<br>
 
 We can divide the assignments to a cluster in two categories:
 - Hard assignments
@@ -62,14 +62,14 @@ where each cluster has a cluster centre(mean), called the **centroid**.
 
 The algorithm works as follows:
 1. Choose k (random) data points (seeds) to be initial centroids<br>
-![img_56.png](img_56.png)
+![img_56.png](2510img/img_56.png)
 2. Assign each data point to the closest centroid<br>
-![img_57.png](img_57.png)
+![img_57.png](2510img/img_57.png)
 3. Recompute the centroids using the current cluster memberships<br>
-![img_58.png](img_58.png)
+![img_58.png](2510img/img_58.png)
 4. If a convergence criterion is not met, repeat steps 2 and 3<br>
-![img_59.png](img_59.png)<br>
-![img_60.png](img_60.png)<br>
+![img_59.png](2510img/img_59.png)<br>
+![img_60.png](2510img/img_60.png)<br>
 
 #### Convergence(stopping) criterion
 1. No (or minimum) re-assignments of data points to different clusters or
@@ -86,7 +86,7 @@ We might have to run this many times to get this minimum sum of squared error
 
 The elbow method looks at the percentage of variance explained as a function of the number of clusters:<br>
 one should choose a number of clusters so that adding another cluster doesn't give much better modelling of the data:<br>
-![img_61.png](img_61.png)<br>
+![img_61.png](2510img/img_61.png)<br>
 
 #### Pros and Cons of k-means clustering
 - Pros: it is simple and fast
@@ -102,12 +102,12 @@ It could be very hard to pick the right k for k-means clustering. Instead of pic
 - The top level contains all the points
 - The bottom level contains one cluster per data point
 
-![img_62.png](img_62.png)<br>
+![img_62.png](2510img/img_62.png)<br>
 
 To obtain this dendrogram we input the dataset or dissimilarity matrix and the linkage type.
 The higher up the dendrogram, the more dissimilar the datapoints are.
 We set a certain trheshold on where to stop clustering and keep multiple clusters:<br>
-![img_63.png](img_63.png)<br>
+![img_63.png](2510img/img_63.png)<br>
 
 We can approach the calculation of the dendrogram in two ways, the bottom-up and top-down approach.
 
@@ -130,7 +130,7 @@ You can calculate the "closest" cluster in a few ways:
 - Complete linkage: two remote objects in the clusters
 - Average linkage: cluster centers
 
-![img_64.png](img_64.png)<br>
+![img_64.png](2510img/img_64.png)<br>
 
 
 #### Top-down
@@ -142,7 +142,7 @@ In the top-down (divisive) approach:
 Here we apply k-means recursively:
 1. we run k-means on the original data for k=2
 2. Each of the resulting clusters runs k-means with k=2:<br>
-![img_65.png](img_65.png)<br>
+![img_65.png](2510img/img_65.png)<br>
 
 
 #### Pros and Cons of hierarchical clustering
@@ -176,7 +176,7 @@ Reducing dimensionality is done by transforming high-dimensional data to data of
 2. Feature extraction
    - construct a new set of dimensions
    - These are often linear techniques, which project the data on a linear subspace of a lower dimensionality (principal component analysis):<br>
-![img_66.png](img_66.png)<br>
+![img_66.png](2510img/img_66.png)<br>
 
 
 ### PCA
@@ -186,12 +186,12 @@ It defines a set of principal components:
 1. the direction of the greatest variability in the data
 2. perpendicular to the 1st, greatest variability of what's left
 3. etc, until you have the d original dimensions
-<br>![img_67.png](img_67.png)
+<br>![img_67.png](2510img/img_67.png)
 
-![img_68.png](img_68.png)<br>
-![img_69.png](img_69.png) ![img_70.png](img_70.png) ![img_71.png](img_71.png)<br>
-![img_72.png](img_72.png)<br>
-![img_73.png](img_73.png)<br>
+![img_68.png](2510img/img_68.png)<br>
+![img_69.png](2510img/img_69.png) ![img_70.png](2510img/img_70.png) ![img_71.png](2510img/img_71.png)<br>
+![img_72.png](2510img/img_72.png)<br>
+![img_73.png](2510img/img_73.png)<br>
 
 The first principal component is chosen such that<br>
 It has the smallest projection error/largest variance after projection.
@@ -209,7 +209,7 @@ var(u_Tx) = [u1T X XT u1] = u1T S u1<br>
 where S is the covariance matrix.<br>
 
 Enforce constraint using Lagrange multiplier λ (condition is u1T u1 = 1):<br>
-![img_74.png](img_74.png)<br>
+![img_74.png](2510img/img_74.png)<br>
 
 Find stationary point by setting derivative with respect to u_1 to zero:<br>
 Su1 = λu1<br>
@@ -243,9 +243,9 @@ We have a couple of ways to find the eigenpairs.<br>
    6. use power iteration on M* and so on
 
 Example of power iteration:<br>
-![img_76.png](img_76.png)<br>
-![img_77.png](img_77.png)<br>
-![img_78.png](img_78.png)<br>
+![img_76.png](2510img/img_76.png)<br>
+![img_77.png](2510img/img_77.png)<br>
+![img_78.png](2510img/img_78.png)<br>
 
 
 #### PCA summarized
@@ -256,7 +256,7 @@ Example of power iteration:<br>
 - Let Ek be first k columns of E
 - Then XT Ek is a k dimensional representation of X
 
-![img_75.png](img_75.png)<br>
+![img_75.png](2510img/img_75.png)<br>
 
 #### PCA issues
 There are a few issues with PCA. For one, the covariance is extremely sensitive to large values:

@@ -10,11 +10,11 @@
 - Unsupervised learning: the system itself learns features about the data by itself
 
 ### Methods of machine learning
-![img.png](img.png)
+![2510img/img.png](2510img/img.png)
 
 ## 2. The Machine Learning Pipeline
 ### The Goal of Machine Learning
-![img_1.png](img_1.png)
+![2510img/img_1.png](2510img/img_1.png)
 We want to create a model(g) that takes in an input and creates an output. We then calculate the loss of the model by using the loss function L with the original object O. <br>
 Then we take the average risk; the expected loss to evaluate how well our model performs.
 

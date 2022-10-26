@@ -32,7 +32,7 @@ Let's have a look at the formula.
 
 ## 3. Errors
 We can have classification errors in the following region:<br>
-![img_2.png](img_2.png)<br>
+![2510img/img_2.png](2510img/img_2.png)<br>
 The error could be calculated as $p(error) = \sum_{i=1}^{C} p(error|w_i)p(w_i)$
 
 ### Bayes error ε*

@@ -4,7 +4,7 @@
 ## 0. Risk Minimisation - the Empirical Risk
 For joint probability, we directly model the decision function (the posterior) or the decision boundary.
 We can construct the classifier using empirical risk minimisation.<br>
-![img_18.png](img_18.png)<br>
+![2510img/img_18.png](2510img/img_18.png)<br>
 where
 - x, y: observed values corresponding to the input features and outcome of interest
 - h: hypothesis function that maps input to a decision value
@@ -40,7 +40,7 @@ There can be many ways to measure this:
 We then take the average of this by looking at the loss function for all objects. <br>
 <br>
 Now we have to minimise the loss:<br>
-![img_19.png](img_19.png)<br>
+![2510img/img_19.png](2510img/img_19.png)<br>
 How can we find the best w?
 
 ### Gradient descent
@@ -106,14 +106,14 @@ We call the objects on the margin support vectors. They are what we care about; 
 <br>
 We want the closest objects to be "far away" from the decision boundary, so we set a decision value of at least M.<br>
 We can scale w to reach M without changing the decision boundary. <br>
-![img_20.png](img_20.png)<br>
+![2510img/img_20.png](2510img/img_20.png)<br>
 so we maximise the margin which is 2/||w||, or minimise ||w||^2 / 2.<br>
 Note that this is subject to M = 1.<br>
 <br>
 However, the points might not be linearly separable. In this case, we could allow for "violations" of the margin and penalise how far the object is on the wrong side of the margin.<br>
 We could use the hinge loss, which is defined by $ max(1- y*h(x), 0) $<br>
 And we can introduce Soft-Margin SVM:<br>
-![img_21.png](img_21.png)<br>
+![2510img/img_21.png](2510img/img_21.png)<br>
 
 ### Summary
 - For linearly separable data: maximise the margin
@@ -128,12 +128,12 @@ For discriminative models, we could directly construct a multi-class classifier,
 
 ### One-versus-rest
 We can use k-1 binary classifiers to separate on class from the rest.<br>
-![img_22.png](img_22.png)<br>
+![2510img/img_22.png](2510img/img_22.png)<br>
 The downside of this is that we get ambiguously classified regions.
 
 ### One-versus-one
 We can use k(k-1)/2 binary classifiers to discriminate between all pairs of classes.<br>
-![img_23.png](img_23.png)<br>
+![2510img/img_23.png](2510img/img_23.png)<br>
 but again, we get ambiguous regions.<br>
 
 To solve the ambiguity, we could use the decision values rather than predicted labels of the classifiers

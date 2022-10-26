@@ -2,7 +2,7 @@
 
 ---
 ## 0. Deciding which classifier to use
-![img_34.png](img_34.png)<br>
+![2510img/img_34.png](2510img/img_34.png)<br>
 Above is the recap of the classifiers we have covered so far. We have:
 - Generative
   - Parametric
@@ -34,32 +34,32 @@ The variance would be Var(ε) ε(1-ε) / Ν, where N is the amount of training s
 
 ## 1. Test/training set division
 In order to get the error estimation, let's divide the training and test set. But how can we divide them?<br>
-![img_35.png](img_35.png)<br>
+![2510img/img_35.png](2510img/img_35.png)<br>
 There are a few other techniques which can help with dividing the training and test set in a smarter way.<br>
 
 ### 1. Bootstrapping
 Given a training set D of size n, generate m new training sets D_i, each of size n`. We generate these training sets by randomly choosing elements from the entire dataset.<br>
 This means it is possible that you select certain elements twice, and train on it twice. This makes re-sampling truly random instead of choosing from the leftover data set.<br>
-![img_36.png](img_36.png)<br>
+![2510img/img_36.png](2510img/img_36.png)<br>
 
 The classification error estimate is the average of the classification errors.
 
 ### 2. K-fold cross validation
 Divide the dataset in groups of k samples. Use 1 sample for testing, k-1 for training. Each time you train and test your error, then you repeat this until you have tested on all k groups.<br>
-![img_37.png](img_37.png)<br>
+![2510img/img_37.png](2510img/img_37.png)<br>
 
 The classification error estimate is the average of the classification errors.
 
 ### 3. Leave-one-out cross validation
 k-fold with k = 1. So you train k times, each with only 1 test example.<br>
-![img_38.png](img_38.png)<br>
+![2510img/img_38.png](2510img/img_38.png)<br>
 
 This is optimal for training, but is very computationally intensive. That's why 10-fold cross validation is often used(k=10).
 
 ### 4. Double cross validation
 Machine learning methods have "hyperparameters", which are parameters of the machine learning method itself (like the width h in Parzen). You shouldn't optimize the parameters of the learning methods by looking at the test set.<br>
 You should optimize them by using cross validation inside another cross-validation. Once you found the value of the hyperparameter with the lowest error, retrain the entire classifier with the optimal h_j.<br>
-![img_39.png](img_39.png)<br>
+![2510img/img_39.png](2510img/img_39.png)<br>
 
 It is possible that the different folds yield different parameters with the same error; then you can just average them and retrain.
 
@@ -72,7 +72,7 @@ In principle, this error is the true error. So learning curves are curves that p
 - comparison between different classifiers
 - stability of training, etc
 
-![img_40.png](img_40.png)<br>
+![2510img/img_40.png](2510img/img_40.png)<br>
 
 But we can also look at the apparent error on the training set. The higher the amount of samples, the higher the error seems to be, but the lower the true error will be.
 This is because with a low amount of samples, we have a lot of overfitting. So these learning curves plots the error on both training and the test set.<br>
@@ -106,7 +106,7 @@ The dilemma is about the following: we try to minimize both the variance and the
 
 ### Feature cure
 The feature curve describes the classification errors with respect to the complexity of your feature set.<br>
-![img_41.png](img_41.png)<br>
+![img_41.png](2510img/img_41.png)<br>
 More features give a better performance, but in order to use them, you need a bigger amount of samples.
 
 
@@ -116,7 +116,7 @@ This provides the counts of class-dependent errors: how many objects have been c
 
 This confusion matrix for k classes is a k x k matrix, with N real labels (λ_Ν) and N predicted labels (l_N) for which the elements are filled as c_ij = N x P[l_j | λ_i]<br>
 This means: how many items from class i are actually classified as j?<br>
-![img_42.png](img_42.png)<br>
+![img_42.png](2510img/img_42.png)<br>
 Errors can be calculated as seen in the picture above; by averaging the percentage that is misclassified between the classes. Note that in this example all the classes are equally important(not weighted).<br>
 
 If you see that classification of a certain class is very good but that for other is bad, you can remove this good class from the classifier and make a new classifier for the other classes, which will probably use different features and parameters.<br>
@@ -128,11 +128,11 @@ Then you can use this confusion matrix and a cost function in order to determine
 ## 5. ROC curves
 For a 2 class classification problem, we can define a Receiver-Operator Characteristic curve. It is a curve where on each axis is the error of the classes, so you look at the possible trade-offs of the two classes.
 This curve is obtained by varying classifier threshold d:<br>
-![img_43.png](img_43.png)<br>
+![img_43.png](2510img/img_43.png)<br>
 
 Using this ROC curve we can see the result of changing the prior probabilities of classes. This can be useful when the amount of samples of a class really depends on the dataset or when the priors are unknown.
 Then using this ROC curve you can find the optimal parameters.<br>
-![img_44.png](img_44.png)<br>
+![img_44.png](2510img/img_44.png)<br>
 
 ### AUC
 The area under the ROC curve is called the AUC. This area gives a performance measure that is insensitive to class priors. If this area is 1, you have a perfect classifier. If this area is 0.5 you have a random classifier.<br>

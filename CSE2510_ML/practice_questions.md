@@ -68,7 +68,7 @@
 * Q. The function used to model p(y|x) in logistic regression is:
 * h_w(x) = g(wTx) where g(z) = 1/(1+e^-z) is the logistic function.
 * Given the 2-dimensional, 2-class dataset in the figure below, is this a possible decision boundary of the logistic classifier?
-  <br>![figure](decboundary_logistic.png)
+  <br>![figure](2510img/decboundary_logistic.png)
   </br></br>
 * A. No
   </br></br>
@@ -76,7 +76,7 @@
 
 ### 7. Logistic Regression Decision Boundary 2
 * Q. (same question as 6)
-<br>![figure 2](linear.png)
+<br>![figure 2](2510img/linear.png)
 
   </br></br>
 * A. Yes
@@ -263,7 +263,7 @@ Easy question; skipped
 
 ### 5. Perceptron Definition
 - Q. Here you see a graphical depiction of a perceptron. What do the x, w, and y denote?<br>
-![img_50.png](img_50.png)<br>
+![2510img/img_50.png](2510img/img_50.png)<br>
 <br>
 - A. x = input values / w = weights / y = output value
 
@@ -295,7 +295,7 @@ Easy question; skipped
 
 ### 9. MLP Flow
 - Q. Here you see a graphical depiction of a multi-layer perceptron. How is the value of the hidden units calculated?<br>
-![img_51.png](img_51.png)<br>
+![2510img/img_51.png](2510img/img_51.png)<br>
 <BR>
 - A. An activation function is applied to the multiplication of the input x and the weights w, plus the bias x0.
 <BR><BR>
@@ -305,7 +305,7 @@ Easy question; skipped
 easy question; skipped
 
 ### 11. MLP Calculation
-![img_52.png](img_52.png)<br>
+![2510img/img_52.png](2510img/img_52.png)<br>
 - Q. Consider the multi-layer perceptron depicted in the figure, where the numbers next to the edges denote the weight of each connection. Suppose we use a logistic activation function for both the hidden nodes and the output node.
 <br>
 - If the input to this model is xT=[5,−2], what will the value for y^ be?
@@ -346,7 +346,7 @@ What are the new centroids after one iteration of k-means algorithm?
 - Compute the distances of each points from the two centroids. Add the points to the nearest clusters, and compute the mean
 
 ### 2. Agglomerative
-- Q. ![img_79.png](img_79.png)
+- Q. ![img_79.png](2510img/img_79.png)
 <BR><BR>
 - A. C and D
 <BR><BR>
@@ -373,7 +373,7 @@ Q. What is a dendrogram?<br>
 A. 4
 
 ### 5. K-means
-Q. ![img_80.png](img_80.png)<br>
+Q. ![img_80.png](2510img/img_80.png)<br>
 
 A. Correct point assignment:
 
@@ -406,7 +406,7 @@ A. 1 and 4.<br>
 - Regarding rotations, there is no scaling so although all eigenvectors change their direction, eigenvalues remain constant.
 
 ### 7. PCA
-Q. ![img_81.png](img_81.png)<br>
+Q. ![img_81.png](2510img/img_81.png)<br>
 
 A.
 1. [4  -4]<br>

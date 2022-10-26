@@ -13,9 +13,9 @@ This is where non-parametric density estimations can be useful.
 4. Add contributions of cells
 
 ### Classifier
-![img_16.png](img_16.png)<br>
+![2510img/img_16.png](2510img/img_16.png)<br>
 The dashed lines are individual Gaussian kernel functions and the blue line is the sum of these kernel functions. The density function is as follows:<br>
-![img_17.png](img_17.png)<br>
+![2510img/img_17.png](2510img/img_17.png)<br>
 Where:
 - K: kernel function
 - (x-xi)/h: normalizing x around the origin

@@ -66,7 +66,7 @@ To debias the three previously mentioned measurements, we can do the following:
   - Can be debiased by a smart implementation of the algorithm
 
 ### Why do disparities get into our machine learning models?
-![img_45.png](img_45.png)
+![2510img/img_45.png](2510img/img_45.png)
 
 
 ## 3. Measuring fairness & adapting models
@@ -102,7 +102,7 @@ For bigger datasets, this is even more problematic.<br>
 <br>
 
 #### Problems with Independence
-![img_46.png](img_46.png)<br>
+![2510img/img_46.png](2510img/img_46.png)<br>
 Let's have a look at the example below. The bank does not want to use a classification model that satisfies independence here. Why not?<br>
 
 It is because that the acceptance rate in both groups need to be the same and that means we need to accept a lot from group b and reject a lot from a.<br>
@@ -113,13 +113,13 @@ So for the extreme cases, independence can be very inefficient.
 ### Criteria 2: Separation
 Instead of having equal acceptance rate, we can go for equal fraction of mistakes for each group.<br>
 In separation, ε+ and ε- have to be the same for each group. See the table below:<br>
-![img_47.png](img_47.png)<br>
+![2510img/img_47.png](2510img/img_47.png)<br>
 We have learnt the ROC curve before:<br>
-![img_48.png](img_48.png)<br>
+![2510img/img_48.png](2510img/img_48.png)<br>
 We model the ROC curve for both models, and separation is satisfied when the two curves intersect.<br>
 
 We also can have cases where the two curves never intersect: in that case, we add noise to one model so the prediction is affected:<br>
-![img_49.png](img_49.png)<br>
+![2510img/img_49.png](2510img/img_49.png)<br>
 
 ### Limitations of Statistics
 Criteria only look at the statistics. However, for fairness we need to know how a decision was made.<br>

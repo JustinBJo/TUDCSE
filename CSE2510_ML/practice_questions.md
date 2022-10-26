@@ -335,3 +335,106 @@ easy question; skipped
 - A. 3. Both
 <BR><BR>
 - Pruning is a way to minimise risk in decision tree; Backpropagation for MLP.
+
+## Week 7: Unsupervised Learning
+### 1. k-means
+- Q. Given are four points: (2, 2), (8,6), (6,8), (2,4) and two randomly selected cluster centroids μ1 = (2,8) and μ2 = (7,2).<br>
+What are the new centroids after one iteration of k-means algorithm?
+<br><br>
+- A. (4,6) and (5,4)
+<BR><BR>
+- Compute the distances of each points from the two centroids. Add the points to the nearest clusters, and compute the mean
+
+### 2. Agglomerative
+- Q. ![img_79.png](img_79.png)
+<BR><BR>
+- A. C and D
+<BR><BR>
+- In agglomerative approach, we join two clusters that are the closest.
+- For single linkage, the distance of another cluster C from the newly joint cluster of A and B is the minimum distance between d(A,C) and d(B,C)
+- For complete linkage, we take max(d(A,C), d(B,C)).
+### 3. Clustering k-means
+- Q. The choice of k, the number of cluster k-means partitions data into:
+  - should always be as large as your computer system can handle
+  - has maximum of 10
+  - depend on why you are clustering the data
+  - is a personal choice that shouldn’t be discussed in public
+<BR><BR>
+- A. 3
+
+### 4. Dendrogram
+Q. What is a dendrogram?<br>
+- a type of hierarchical clustering.
+- a type of barchart diagram to visualize k-means.
+- a tree diagram used to illustrate the arrangement of clusters in partitional clustering.
+- a tree diagram used to illustrate the arrangement of clusters in hierarchical clustering.
+
+<br>
+A. 4
+
+### 5. K-means
+Q. ![img_80.png](img_80.png)<br>
+
+A. Correct point assignment:
+
+C1: (4, 1), (2, 2), (3, 3), (3, 4), (1, 4)<br>
+C2: (5, 3), (4, 7), (5, 7), (5, 6), (6, 5), (7, 7)
+
+OR
+
+C1: (2, 2), (3, 3), (3, 4), (1, 4)<br>
+C2: (5, 3), (4, 7), (5, 7), (5, 6), (6, 5), (7, 7), (4, 1)
+
+correct centroids:
+
+C1: (13/5, 14/5)<br>
+C2: (32/6, 35/6)<br>
+or<br>
+C1: (9/4, 13/4)<br>
+C2: (36/7, 36/7)<br>
+
+### 6. PCA *
+Q. Which of the following statements is TRUE about Principal Components Analysis? Assume that each eigenvectors of the covariance matrix has a unique eigenvalue.
+- If you use PCA to project d-dimensional points onto j principal components, and then you run PCA again to project those j-dimensional points onto k principal components, with d>j>k, you always get the same result as if you had just used PCA to project the d-dimensional points directly onto k principal components.
+- If you perform an arbitrary rotation of the data points as a group in the original feature space before performing PCA, the largest eigenvalue of the sample covariance matrix will change.
+- If you perform an arbitrary rotation of the data points as a group in the original feature space before performing PCA, the principal component directions does not change.
+- If you append a 1 to the end of every data point the results of performing PCA will not change. The only changes are that the principal component vectors will have an extra 0 at the end, and there is one extra useless component with eigenvalue zero.
+
+
+A. 1 and 4.<br>
+
+- Regarding rotations, there is no scaling so although all eigenvectors change their direction, eigenvalues remain constant.
+
+### 7. PCA
+Q. ![img_81.png](img_81.png)<br>
+
+A.
+1. [4  -4]<br>
+   [-4  4]<br>
+2. 8 and 0
+3. 100%
+
+- For 1.
+  - Var(X) = E[(X-E[X])^2]
+  - Cov(X,Y) = E[(X-E[X])(Y-E[Y])]]
+- For 2.
+  - det([4-λ  -4]) = 0<br>
+  .....([-4  4-λ])
+  - (4-λ)^2 - 16 = 0
+  - λ = 8 or λ = 0
+- For 3.
+  - 8 / (8+0) = 100%
+
+### 8. PCA what?
+Q. Which of the following is/are true about PCA? 
+1. PCA is an unsupervised method
+2. It searches for the directions where data have the largest variance
+3. Maximum number of principal components <= number of features
+4. All principal components are orthogonal to each other
+
+A. All
+
+### 9. PCA *
+Q. Explain why you need to center the data (subtract mean) before applying a PCA.<br>
+
+A. After we zero-mean the data, the covariance matrix equals 1/n XT X.

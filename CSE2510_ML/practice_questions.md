@@ -316,6 +316,14 @@ easy question; skipped
   - y^=1.0
 <BR><BR>
 - A. 0.0<y^<0.5
+<BR><BR>
+- input at h1 = 1 * 0 + 5 * 0.2 + -2 * 1 = -1
+- value at h1 = σ(-1) -> 0 < h1 < 0.5
+- input at h2 = 0
+- value at h2 = σ(0) = 0.5
+<br><br>
+- input at y is lower than 0
+- Therefore value at y is 0.0 < y^ < 0.5
 
 ### 12. ERM, MLP, Decision Trees
 - Q. In this course, we used the framework of Empirical Risk Minimization to introduce several machine learning methods.

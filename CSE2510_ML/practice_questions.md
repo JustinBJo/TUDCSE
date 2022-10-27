@@ -4,7 +4,74 @@
 
 ## Week 1. Introduction
 ## Week 2. Parametric Generative Models
+
+### Practice Exam 1 - Q1 (Bayes error)
+Q. Below are four statements about Bayes error. Select all statements that are correct.
+- Bayes error is the minimum attainable error.
+- The Bayes error depends on the classification rule that you apply, and not on the distribution of the data.
+- In general, the Bayes error is not computable, since you do not know the true class conditional probabilities.
+- In general, the Bayes error is easily computable using (high) dimensional integrals.
+
+A. 1 and 3.<br>
+
+Bayes error is the minimum attainable error. We cannot obtain this error because we do not know the true distribution.
+Bayes error depends on the distribution, not the classification rule.
+
+### Practice Exam 1 - Q6 (Curse of Dimensionality)
+Q. Which of the following statements are true?
+- Adding more features to a classification problem always decreases generalization performance because of the curse of dimensionality.
+- Adding more features to a classification problem increases the information available, which always increases generalization performance.
+- Adding more features to a classification problem increases the Bayes error because of the curse of dimensionality.
+- Adding more features to a classification problem can not increase the Bayes error because it increases the amount of information available.
+
+A. 4
+
+Curse of dimensionality says that increase in the number of features can reduce the error as it gives more information, but only up to a certain point.<br>
+Too many features can lead to increase in the error as there are too many parameters to be estimated.
+
+### Practice Exam 1 - Q13 (Computing p(Y|X))
+Q. Suppose that you store your socks in 3 drawers and there is equal probability that you will open any of them:
+
+Drawer A contains 8 blue, 6 grey, and 10 red socks;
+Drawer B contains 4 blue, 8 grey, and 4 red socks;
+Drawer C contains 6 blue, 10 grey, and 8 red socks.
+
+From one of the drawers you take out a sock, what is the probability that you have taken it out of drawer B knowing that the sock is grey?
+
+A. 3/7
+
+p(B|grey) = p(grey|B)p(B) / p(grey)<br>
+p(B) = 1/3<br>
+p(grey|B) = 8/16 = 1/2<br>
+p(grey) = 1/3 * 6/24 + 1/3 * 8/16 + 1/3 * 10/24 = 7/18<br>
+
+p(B|grey) = 1/3 * 1/2 * 18/7 = 3/7
+
+### Practice Exam 1 - Q14 (LDA)
+Q. Suppose we have a classification problem with 3 features, 2 classes and a training set of 100 objects. We want to fit an Gaussian linear discriminant analysis classifier. How many parameters do we need to estimate for this model?+
+
+A. 13
+
+We have 3 features, so we have 3 means per class. So 2 classes makes 6 means.<br>
+For covariance matrix, we have 3x3 shape: the covariance matrix is symmetrical, so we have 6 parameters (the top-side triangle)<br>
+We also have to compute the class prior; if one is computed, we can compute the another by simply taking the original away from 1.<br>
+so 6+6+1 = 13.
+
 ## Week 3. Non-parametric Generative Models & Evaluation
+
+### Practice Exam 1 - Q18 (K-NN ties)
+Q. We are using a k-nn to classify c classes where c > 2.
+Which tie-breaking rules are guaranteed to resolve the tie?
+- Random flip, if there is a tie then you choose one at random
+- Prior, pick the class with the greatest prior probability
+- Use an odd value of k
+
+A. 1
+
+- Random flip chooses exactly one at random
+- It might be that the prior probabilities are the same
+- This only works for c = 2
+
 ## Week 4. Linear Discriminative Models
 ### 1. Discriminative objective (*)
 * Q. Which of the following best describes what probabilistic discriminative approaches try to model? (w are the parameters of the model)
@@ -134,7 +201,7 @@ log(p(Y=1|x2)/p(Y=0|x2)) = log(1/(1-e^-x2)) - log(-e^-x2 / (1-e^-x2))
   </br></br>
 * *It only tries to fit a decision function, but it does not model the probabilities*
 
-### 14. SVM example
+### 14. SVM Example
 ### 15. SVM application
 * Q. Consider a dataset with 2 objects per class and 2 features. For the positive class, the objects are located at [0,1] and [1,0] and for negative class at [0,-1] and [-1,0].
 * Give the weight vector w and the number of support vectors (SVs) that the support vector machine will find.
@@ -164,6 +231,45 @@ log(p(Y=1|x2)/p(Y=0|x2)) = log(1/(1-e^-x2)) - log(-e^-x2 / (1-e^-x2))
   </br></br>
 * 4 classes so 4
 * Book says K-1 classifiers for K classes
+
+### Practice Exam 1 - Q9 (Logistic regression)
+Q. Suppose we trained a logistic regression model that uses h(x) to estimate P(Y=1|X=x) on a dataset with a single feature x, and we find parameters w0=0.0 and w1=0.5. Consider the following two predictions of this model: h(4) and h(8). Which statement is true?
+- h(4)/h(8) = 2
+- h(4)/h(8) = 1.11
+- h(4)/h(8) = 2.22
+- h(8)/h(4) = 2 
+- h(8)/h(4) = 1.11
+- h(8)/h(4) = 2.22
+
+A. 5
+
+h(x) = 1 / (1 + e^-(wTx))
+h(8) = 1 / (1 + e^-(0.5 * 8 + 0.0)) = 0.982<br>
+h(4) = 1 / (1 + e^-(0.5 * 4 + 0.0)) = 0.881<br>
+h(8)/h(4) = 0.982/0.881 = 1.11
+
+### Practice Exam 1 - Q10 (Support Vector Machine)
+Q. Consider the following 2-class problem with classes {−1,+1} and two features. We are given a training dataset with three objects, one object at (0,2) belonging to class +1, one object at (0,-2) belonging to class -1, and one object at (0,-4) belonging to class -1.
+
+What will the w vector be for a support vector classifier trained on this dataset, and how many support vectors are there? (note: you need to select 2 answers)
+
+A. 2 support vectors, wT = [0, 0.5]
+
+By drawing the points we know that there are 2 points on the margin.
+
+[0,2]w = 1, [0,-2]w = -1<br>
+0 * w0 + 2 * w1 = 1<br>
+0 * w0 + -2 * w1 = -1<br>
+
+Therefore wT = [w0, 0.5]
+
+### Practice Exam 1 - Q22 (Double Cross-Validation)
+Q. We are training a neural network with a single hidden layer to solve a binary classification problem on a dataset of 100 objects and we have 5 features. As a hyperparameter, we are going to consider 2, 3 or 4 nodes in the hidden layer. We are going to select the optimal hyperparameters using 10-fold cross-validation. To get an good estimate of the performance of this procedure, we also use 10-fold cross-validation to estimate the performance. In other words, we will be applying double cross-validation. How many models do we have to train during this process?
+
+A. 310
+
+In each iteration of the inner loop, we train 10 * 3 models to find the optimal setting among the 3 values of the hyperparameter, and then we train a model on all data in the training set for this iteration using this optimal setting.<br>
+Since the outer loop has 10 iterations, we need to  fit 31 * 10 = 310 models.
 
 ## Week 5. Biases & Fairness
 
@@ -221,6 +327,57 @@ log(p(Y=1|x2)/p(Y=0|x2)) = log(1/(1-e^-x2)) - log(-e^-x2 / (1-e^-x2))
   to be accepted. This means the bank will make a large loss, because it needs to accept people
   that cannot pay the loan back. The Seperation criterion does allow acceptance rate to be
   different for each group and thus will allow the bank to have a larger profit.
+
+### Practice Exam 1 - Q8 (Ethics)
+Q. Which of the following statements best characterizes the difference between normative and descriptive ethics?
+- Descriptive ethics offers psychological accounts of how we ought to act, whereas normative ethics offers sociological accounts of how we ought to act.
+- Descriptive Ethics offers characterizations of how we act morally and think about morality as a matter of fact, while normative ethics offers a prescriptive account on how we ought to act and understand ourselves as moral beings.
+- Descriptive ethics offers a characterization of how others behave morally, while normative ethics characterizes how I behave morally.
+- Descriptive ethics offers a characterization of how we ought to behave while normative ethics characterizes the norms that we as a matter of fact obey as members of society.
+
+A. 2
+
+Descriptive ethics offers characterizations of how we act morally and think about morality as a matter of fact<br>
+Normative ethics offers a prescriptive account on how we ought to act and understand ourselves as moral beings<br>
+
+The main difference between normative ethics and descriptive ethics is that normative ethics analyses how people ought to act whereas descriptive ethics analyses what people think is right.
+
+Basically, normative ethics is the study of ethical action whereas descriptive ethics is the study of people’s views about moral beliefs.
+- https://pediaa.com/difference-between-normative-ethics-and-descriptive-ethics/
+
+Put simply, normative -> norm, descriptive -> describes people
+
+### Practice Exam 1 - Q11 (Debiasing)
+Q. The results of a speech recognition algorithm show a strong bias against a particular group of speakers. What can you do to mitigate this bias?
+- You change the parameters of your algorithm to disfavour the group of speakers towards which the bias occurs (i.e., which are better recognised).
+- You check the distribution of the speaker groups in the training material and change these if necessary.
+- You add more training data of the speaker group against which the bias occurs.
+
+A. All three
+
+In order to fix the bias against one group, we can either
+- make the favoured group little more disfavoured (change the parameters)
+- change the distribution of the training set
+  - add more training data of the disfavoured group
+
+### Practice Exam 1 - Q23 (Proxy problem)
+Q. Which of the following statements best characterizes the ‘proxy problem’ that we will likely have to confront in our effort to avoid biases in ML applications?
+
+...
+
+A. Biases are due to ‘proxy attributes’: seemingly innocuous attributes that correlate with socially sensitive attributes, serving as proxies for the socially-sensitive attributes themselves. The problem is that these attributes also function to increase the accuracy of the application. We are thus confronted with a trade-off between de-biasing an application by decreasing its reliance on proxy attributes and the positive role these same attributes might play in increasing the accuracy of the application.
+
+Example of a proxy attribute: zip code.<br>
+zip code is the region, and from this we can assume race, income, relgion etc.
+
+## Practice Exam 1 - Q24 (Bias and Discrimination)
+Q. Ethics in/of machine learning is really important. As computer scientists we have a responsibility to make our software fair. There are different concepts important in ethics in machine learning. This question is about bias. Which two statements regarding bias are correct?
+- Bias in software can lead to discrimination against or for groups of people.
+- Bias is not likely to occur in most software.
+- Bias is not easily avoided or removed from software.
+- Bias is primarily caused by inadequate or even evil programmers.
+
+A. 1,3
 
 ## Week 6. Non-Linear Discriminative Models
 
@@ -336,6 +493,31 @@ easy question; skipped
 <BR><BR>
 - Pruning is a way to minimise risk in decision tree; Backpropagation for MLP.
 
+### Practice Exam 1 - Q26 (Multilayer Perceptron)
+![img_1.png](2510img/iimg_1.png)<br>
+Consider the multilayer perceptron depicted in the figure, where the numbers next to the edges denote the weight of each connection. Suppose we use a step function activation function (a function which returns 1 if its input is bigger than 0, and returns 0 otherwise) for both the hidden nodes and the output node.
+
+If the input to this model is xT=[4,2], what will the value for h2 and y^ be?
+
+A. h2 = 1, y = 0
+
+input at h1 = 1 * 0.5 + 4 * -0.5 + 2 * 0.5 = -0.5<br>
+value at h1 = 0<br>
+input at h2 = 1 * -5 + 4 * 1 + 2 * 1 = 1<br>
+value at h2 = 1<br>
+input at y^ = 1 * 0 + 0.5 * -1 + 1 * -1 = -1.5<br>
+value at y^ = 0
+
+### Practice Exam 1 - Q7 (Decision Trees)
+Q. Select all statements that are true for decision trees.
+- If we scale the feature values in both the train and test data, the predictions of the model might change.
+- If we use the gini index instead of the entropy to measure node impurity, the predictions of the model might change
+- If we multiply all continuous features in our training and test set by -1 (i.e. we flip their sign), the predictions of the model might change.
+
+A. 2
+
+Scaling the train and the test set by the same factor does not affect the prediction of the decision tree, as the decision boundary stays the same with respect to the data points.
+
 ## Week 7: Unsupervised Learning
 ### 1. k-means
 - Q. Given are four points: (2, 2), (8,6), (6,8), (2,4) and two randomly selected cluster centroids μ1 = (2,8) and μ2 = (7,2).<br>
@@ -438,3 +620,33 @@ A. All
 Q. Explain why you need to center the data (subtract mean) before applying a PCA.<br>
 
 A. After we zero-mean the data, the covariance matrix equals 1/n XT X.
+
+### Practice Exam 1 - Q4 (Dimensionality reduction)
+![img.png](2510img/iimg.png)<br>
+
+A.
+1. [0 0 1]T
+2. We always choose the eigenvector with the highest eigenvalue to keep the original variance as much as possible.
+3. 50%
+   - 5 / (1+5+4) = 0.5
+
+### Practice Exam 1 - Q5 (Hierarchical Clustering)
+Q. What does the height of each cluster (the y-axis of each cluster in the dendrogram) represent?
+
+A. The height of the dendrogram indicates the order in which the clusters were joined.
+
+The higher up the dendrogram, the more dissimilar the datapoints are.
+
+### Practice Exam 1 - Q15 (PCA)
+Q. Principal component analysis (PCA) is the process of computing the principal components (PCs) and using them to perform a change of basis on the data, sometimes using only the first few principal components and ignoring the rest.
+
+Choose the correct statement:
+- Performing the PCA means:
+  - projecting the data in the direction of each PC, and scaling it by a factor of λ (eigenvalue) of that direction (eigenvector).
+  - projecting the data in the direction of each PC, without scaling it by a factor of λ (eigenvalue) of that direction (eigenvector).
+  - translating the data to be zero mean and normalize to have unit variance.
+  - performing dimensionality reduction by choosing a subset of features that have maximum variance from the original set of features.
+
+A. 2
+
+The eigenvalues are for us to choose the eigenvalues with the highest variance.

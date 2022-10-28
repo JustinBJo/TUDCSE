@@ -216,3 +216,57 @@ Storage levels:
 - DISK_ONLY
   - store in disk only
 
+
+## 4. Spark SQL
+We can make RDDs as Data Frames in a form of tables with columns, which allows us to perform operations that are similar to those in SQL.
+
+SparkSQL is a library which provides two main abstractions:
+- Datasets: collections of strongly-typed objects
+- Dataframes: essentially Dataset of Dataset rows.
+- SQL syntax
+
+### Creating Data Frames and Datasets
+1. From RDDs with tuples, e.g. RDD[(String, Int, String)]
+   - ```val df = rdd.toDF("name", "id", "address")```
+2. From RDDs with known complex types, e.g. RDD[Person]
+   - ```val df = persons.toDF() // Columns names/types are inferred!```
+3. From RDDs, with manual schema definition
+   - ```
+     val schema = StructType(Array(
+     StructField("level", StringType, nullable = true),
+     StructField("date", DateType, nullable = true),
+     StructField("client_id", IntegerType, nullable = true),
+     StructField("stage", StringType, nullable = true),
+     StructField("msg", StringType, nullable = true),
+     ))
+     val rowRDD = sc.textFile("ghtorrent-log.txt")
+     .map(_.split(" ")).
+     .map(r => Row(r(0), new Date(r(1)), r(2).toInt, r(3), r(4)))
+     
+     val logDF = spark.createDataFrame(rowRDD, schema)
+     ```
+4. By reading (semi-)structured data files
+
+### RDD vs Dataset
+- Similarity
+  - Strongly typed
+  - Contain objects that need to be serialised
+- Difference
+  - Datasets use special Encoders to convert the data in compact internal formats so that Spark can directly apply operations
+
+### Dataframe operations
+1. Projection
+    - select
+    - drop
+2. Selection
+    - filter
+3. Join
+   - all types of joins are supported
+     - ```people.join(department, people.deptId == department.id, how = left_outer)```
+4. Grouping and Aggregations
+   - groupBy
+   - Aggregations only work after groupBy
+
+### What makes SparkSQL so fast
+1. Optimisation
+2. Code generation

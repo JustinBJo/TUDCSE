@@ -29,7 +29,17 @@ Big data is processed by the ETL cycle:
 - Stream processing
   - processing of data as they arrive to the system
 
-### Problems to solve
+### Desired properties of a big data processing system
+- Robustness and fault-tolerance
+- Low latency (in reads and updates)
+- Scalability
+- Generalisation
+- Extensibility
+- Ad hoc queries
+- Minimal maintenance
+- Debuggability
+
+### When to use big data
 - Modelling: what factors influence particular outcomes/behaviours?
 - Information retrieval: finding needles in haystacks(search engines)
 - Collaborative filtering: recommending items based on items other users with similar tastes have chosen

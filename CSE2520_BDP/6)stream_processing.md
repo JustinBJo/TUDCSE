@@ -109,6 +109,12 @@ Reactive APIs model event sources as infinite collections on which observers sub
 
 <br>
 
+- Processing time vs Event time
+  - Processing time is the time events are observed in the system
+  - Event time is the time events ocurred
+
+<br>
+
 ### What: operations on streams
 - Element wise operations: apply a function to each individual message. Similar to map or flatMap in batch systems
   - map
@@ -149,9 +155,24 @@ Different windowng in streaming systems:<br>
 ![img_7.png](img_7.png)<br>
 Windows are static size (e.g. 1000 events) or time-length "batches" of data.
 
-#### Session windows
-> Dynamically sized windows that aggregate batches of user activity.<BR>
-> Windows end after session gap time.
+1. Tumbling windows
+   - Segment events into fixed sizes and then perform a function against the events in the collection
+   - Segmentations can be based on the count or period of time etc.
+   - There is no overlap between windows; an event can only be part of one window
+2. Jumping windows
+   - Based on fixed time intervals
+   - Windows may overlap (events can belong to multiple windows)
+   - Defined by window time size and the advance interval
+3. Sliding windows
+   - Sliding windows produce an output only when events occur
+   - Every window has at least one window
+   - Events may belong to multiple windows
+4. Session windows
+   - Group events that arrive at similar times and filters out periods of time without any data
+   - Three main parameters:
+     - timeout - if no events within this timeout, close window
+     - maximum duration - maximum period of window
+     - partitioning key - if provided, the session window is applied to a group of events with specific keys independently.
 
 ![img_8.png](img_8.png)
 

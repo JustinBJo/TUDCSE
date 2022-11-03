@@ -20,7 +20,9 @@ Answer: 2
    - Synchronizing state machines
    - leader election
    - atomic broadcasts
-   
+
+<br>
+
 #### Q2. A GFS chunkserver/HDFS datanode is responsible to:
 1. Store filesystem path information
 2. Split the data into partitions
@@ -33,8 +35,12 @@ Answer: 3
 3. Chunkserver/datanode stores data chunks
 4. Done automatically
 
+<br>
+
 #### Q3. Which of the following is the computation order of applying reduceL to a list of 10 integers with the ‘+’ operator?
 Answer: 1 - (((((((((0 + 1) + 2) + 3) + 4) + 5) + 6) + 7) + 8) + 9)
+
+<br>
 
 #### Q4. We need to calculate the average temperature of the last 10 minutes every 30 minutes from a stream of measurements taken every minute. What type of window do we need to use?
 1. Sliding window
@@ -45,6 +51,8 @@ Answer: 1 - (((((((((0 + 1) + 2) + 3) + 4) + 5) + 6) + 7) + 8) + 9)
 Answer: 3
 - Jumping window has fixed time intervals, which corresponds to 30 minutes
 - Windows could have size of 10 minutes
+
+<br>
 
 #### Q5. We have the following datasets:
 - A => All the cars currently traveling through an intersection
@@ -67,6 +75,8 @@ Answer: 3
 
 Answer: 1 - Stream of the sums per ID
 
+<br>
+
 #### Q7. Which of the following best describes synchronous replication?
 1. The master reports success after its cache has been flushed.
 2. The master reports success after a configurable number of slaves have confirmed writes.
@@ -76,6 +86,8 @@ Answer: 1 - Stream of the sums per ID
 Answer: 2
 - In synchronous replication, leader has to report success after a number of followers confirm.
 - This makes synchronous replication system consistent, but less available.
+
+<br>
 
 #### Q8. Which of the following is true about Lamport timestamps and vector clocks?
 1. Lamport timestamps and vector clocks both maintain total causal orders
@@ -89,8 +101,12 @@ Answer: all wrong (this question was removed)
 3. for LT, it is true that if a->b then LT(a)<LT(b) but not the other way around (events may be unrelated). For VC it is symmetric.
 4. no, because they only keep partial orders
 
+<br>
+
 #### Q9. What is the correct function signature for leftOuterJoin on Spark RDDs?
 Answer: 4 - ```RDD[(K,V)].leftOuterJoin(other: RDD[(K, W)]): RDD[(K, (V, Option[W]))]```
+
+<br>
 
 #### Q10. Which of the following function(s) is/are higher order?
 - A(a:Z,b:X)→X
@@ -105,10 +121,14 @@ Answer: 4 - ```RDD[(K,V)].leftOuterJoin(other: RDD[(K, W)]): RDD[(K, (V, Option[
 Answer: 4
 - A higher-order function is a function that takes another function as one of its arguments.
 
+<br>
+
 #### Q11. Which higher order function does the following signature correspond to?
 ```(xs:[A],f:(A,B)→B,acc:B):B```
 
 Answer: 3 - foldR
+
+<br>
 
 #### Q12. Which of the following statements about Watermarks in stream processing systems is not correct.
 1. The timestamp of the watermark signifies that all events carrying a timestamp up to the watermark timestamp should have arrived. 
@@ -122,6 +142,8 @@ Answer: 2
 3. true
 4. session gaps are independent of watermarks
 
+<br>
+
 #### Q13. Given that t is the timestamp an event is processed by a stream processor, event time skew is:
 1. t−s, where s is the timestamp of the latest event processed.
 2. t−s, where s is the timestamp when the last window trigger was fired. 
@@ -132,6 +154,8 @@ Answer: 1
 - Event time skew is calculated t-s, where t is the processing time and s is the timestamp of the latest event processed
 - Lag is calculated t-s, where t is the processing time and s is the actual timestamp of an event
 
+<br>
+
 #### Q14. Which of the following is not a replication architecture:
 1. Master - Master 
 2. Leaderless 
@@ -141,6 +165,8 @@ Answer: 1
 Answer: 4
 - 1 to 3 are replication architectures.
 - 4 is a consistency model in distributed database.
+
+<br>
 
 #### Q15. Which of the following statements is false? In the context of Big Data Processing, ETL pipelines:
 1. Usually feed machine learning systems
@@ -153,6 +179,8 @@ Answer: 3
 - Extract - Transform - Load
 - Big data engineering is about building pipeline
 - Big data analysis is about discovering patterns
+
+<br>
 
 #### Q16. Which of the following methods is part of the Observer interface, for dealing with push-based data consumption?
 1. def subscribe(obs: Observer[A]): Unit
@@ -177,6 +205,8 @@ trait Observable[A] {
     def subscribe(obs: Observer[A]): Unit
 ```
 
+<br>
+
 #### Q17. A transformation in Spark:
 1. Schedules a pipeline run
 2. Runs a pipeline and reports a result
@@ -189,6 +219,8 @@ Answer: 1
 3. data shuffling is performed when wide dependency transformations (groupByKey, join etc) are done
 4. .
 
+<br>
+
 #### Q18. What is Byzantine fault tolerance?
 1. Resilience against multiple node failures
 2. Resilience against node failures when electing cluster leaders
@@ -198,6 +230,8 @@ Answer: 1
 Answer: 3
 - Byzantine fault tolerance is resilience against malicious nodes that lead to suboptimal voting.
 
+<br>
+
 #### Q19. Consider a cluster of 5 machines running HDFS (1 namenode, 4 datanodes). Each node in the cluster has a total of 1TB hard disk space and 128GB of main memory available. The cluster uses a block-size of 64 MB and a replication factor of 3. The master maintains 100 bytes of metadata for each 64MB block. Imagine that we upload a 128GB file. How much data does each datanode store?
 1. 32GB
 2. 64GB
@@ -205,6 +239,8 @@ Answer: 3
 4. 128GB
 
 Answer: 3
+
+<br>
 
 #### Q20. Which of the following statements is not true? An operating system kernel:
 1. Provides a unified interface to hardware devices
@@ -214,6 +250,8 @@ Answer: 3
 
 Answer: 2
 - The kernel is a computer program at the core of a computer's operating system and generally has complete control over everything in the system.
+
+<br>
 
 #### Q21. When multiple senders/receivers are involved, we need external ordering scheme. Which type of order is dependent on “happens before” relationships?
 1. Reflexive order
@@ -227,6 +265,8 @@ Answer: 3
 3. Causal order is the happens-before relation
 4. --
 
+<br>
+
 #### Q22. Which of the following statements about microbatching (in streaming systems) is correct?
 1. Every event is processed as soon as it arrives
 2. The engine buffers events before processing them further
@@ -238,6 +278,8 @@ Answer: 2
 2. True, because it takes data in for a period of time and then aggregates them
 3. This is for event-based streaming
 4. Micro-batching is an approach to stream processing, not batch processing.
+
+<br>
 
 #### Q23. In the case of Spark, narrow dependencies:
 1. Are expensive, as they require extensive data shuffles
@@ -251,8 +293,12 @@ Answer: 2
 3. RDD lineage is in charge of fault tolerance in Spark
 4. RDD actions are in charge of triggering computations
 
+<br>
+
 #### Q24. What is the correct function signature for reduce on Spark RDDs?
 Answer: 2 - ```RDD[A].reduce(f: (A,A) -> A)```
+
+<br>
 
 #### Q25. Vector clocks
 1. enable us to establish partial causal ordering of events
@@ -266,6 +312,8 @@ Answer: 1
 3. It does but only partially; same reason for 1
 4. It is a protocol for ordering events.
 
+<br>
+
 #### Q26. Choose the correct implementation of the Monad interface in Scala:
 Answer: 1
 ```
@@ -276,6 +324,8 @@ trait Monad[M[_]] {
 ```
 Monads are design patterns that defines how functions can be used together to build generic types.<br>
 In other words, Monad is a generic concept which helps in doing operations between pure functions to deal with side effects.<br>
+
+<br>
 
 #### Q27. An (in-memory) immutable data structure:
 1. Updates values in place when updates are requested by the client
@@ -289,6 +339,8 @@ Answer: 3
 3. Immutable data helps in avoiding locking so we can process items in parallel.
 4. --
 
+<br>
+
 #### Q28. What is eventual consistency?
 1. At any time, the system is linearisable
 2. At any time, concurrent reads from any node return the same values
@@ -300,6 +352,8 @@ Answer: 3
 2. This is linearizable consistency
 3. Eventual consistency model ensures that all replicas reach a consistent state if no more user updates arrive
 4. ?
+
+<br>
 
 #### Q29. Immutability enables us to:
 1. Modify data with multiple threads
@@ -313,6 +367,8 @@ Answer: 3
 3. Immutability maintains the old versions of data, so the data can be kept.
 4. --
 
+<br>
+
 #### Q30. Which higher order function does the following code snippet correspond to:
 ```
   def f[A](xs: List[A], ys: List[B]) : List[(A, B)] = (xs, ys) match {
@@ -322,6 +378,8 @@ Answer: 3
   }
 ```
 Answer: 4 - zip
+
+<br>
 
 #### Q31. Given the following value in Scala: <br> ```val statement = List(List("some", "questions"), List("are", "difficult"))``` <br> which of the following sequences of function calls would converted it to the string: “some questions are difficult”
 1. ```statement.flatMap(x => x).flatten```
@@ -336,8 +394,12 @@ Answer: 2
 3. This would give List("some", "questions", "are", "difficult")
 4. This would throw an error because we cannot perform + on lists
 
+<br>
+
 #### Q32. What does Amdahl’s law prescribe?
 Not a part of this course
+
+<br>
 
 #### Q33. Multi-leader systems have issues with write conflicts. Which of the following is the most plausible way of resolving them?
 1. Maintain a write lock. Only one client at any moment can acquire it.
@@ -351,6 +413,8 @@ Answer: 1
 3. This could be a solution, but not very plausible
 4. Not a plausible solution
 
+<br>
+
 #### Q34. A Unix pipe (denoted by |) enables us to:
 1. Move text from the input of a command to the output of another command
 2. Copy data from one location on the hard drive to another
@@ -362,6 +426,8 @@ Answer:4
 2. --
 3. Unix processes with unstructured data
 4. correct
+
+<br>
 
 #### Q35. Which of the following statements are true?
 - The C in ACID and CAP mean the same thing
@@ -376,6 +442,8 @@ Answer: 4
 - ACID: atomicity, consistency, isolation, durability / CAP: consistency, availability, partition tolerance
 - Big data engineering: building pipelines / big data analysis: discovering patterns
 
+<br>
+
 #### Q36. Given that file.txt is a two column CSV file, what does the following Unix command do?
 
 ```$ sed -e 's/^\(.*\),\(.*\)$/\2 \1/' < file.txt | sort```
@@ -389,6 +457,8 @@ Answer: 1
 - sed modifies a string at its input in various ways using pattern matching, such as removing or changing order
 - sort writes a lexicographical sorted concatenation of all input files to STDOUT.
 
+<br>
+
 #### Q37. For our new budget-constrained startup, called DelayedGram, we are building an application that serves millions of cat videos to millions of users in parallel. Which architecture would be more suitable?
 1. A queue that stores and forwards a user request to a centralized database, which also contains the videos 
 2. A web server that serves videos using a cloud-based object store (e.g. Amazon S3)
@@ -397,6 +467,8 @@ Answer: 1
 
 Answer: 2
 - Directly serving videos would be expensive
+
+<br>
 
 #### Q38. Why do Spark RDDs contain lineage information?
 1. To enable fault tolerance
@@ -409,6 +481,8 @@ Answer: 1
 - Lineage information allow an RDD to be traced to its ancestors.
 - Spark uses RDD lineage information to know which partitions to recompute in case of a node failure.
 
+<br>
+
 #### Q39. Which one of the following statements is true, in the context of Unix?
 1. awk enables reduce-like operations 
 2. sed enables reduce-like operations 
@@ -420,6 +494,8 @@ Answer: 1
 2. sed - modifies strings using pattern matching
 3. xargs - equivalent to map
 4. ls - lists all files in current directory
+
+<br>
 
 #### Q40. Which of the following RDD API calls is a performance killer in Spark?
 1. reduceByKey

@@ -237,6 +237,10 @@ We have a couple of ways to find the eigenpairs.<br>
 2. Power iteration
    1. Start with any unit vector x0
    2. compute Mxk until xk+1 := Mxk / ||Mxk|| converge
+      1. get Sx0 vector
+      2. compute the sum of squares of the vector components (frobenius norms)
+      3. divide each component of the vector by frobenius norms to obtain x1
+      4. repeat until convergence
    3. the limiting vector is the principal eigenvector
    4. when converged, compute the eigenvalue λ1 = xT M x
    5. to find a second eigenpair, create a new matrix M* = M - λ1 x xT

@@ -57,6 +57,51 @@ For covariance matrix, we have 3x3 shape: the covariance matrix is symmetrical, 
 We also have to compute the class prior; if one is computed, we can compute the another by simply taking the original away from 1.<br>
 so 6+6+1 = 13.
 
+### Practice Exam 2 - Q1 (Standard Normal Distribution)
+Q. Which of the following density functions describes a standard normal distribution?
+
+![img.png](2510img/iiimg.png)
+
+A. 2
+
+Normal distribution has density function:<br>
+f(x) = (1 / sqrt(2πσ^2) ) e ^ -1/2 * (x-μ / σ)^2
+
+Standard normal distribution has mean 0 and variance 1.
+f(x) = ( 1 / sqrt(2π*1) ) e ^ -1/2 * (x-0 / +-1)^2
+     = ( 1 / sqrt(2π) ) e ^ -1/2 * x^2
+
+### Practice Exam 2 - Q2 (QDA)
+Q. Consider the following two class classification problem: Suppose the class prior probabilities is equal,
+class +1 has a Gaussian distribution with mean [0,0] and covariance [1001]
+and class -1 has a Gaussian distribution with mean [0,0] and covariance [5005].
+Suppose we have a lot of data, and train a quadratic discriminant analysis model on this data. What will the prediction (c(x)) for this model be for x1=[0,0] and x2=[10,10]?
+
+1. c(x1)=+1,c(x2)=+1
+2. c(x1)=+1,c(x2)=−1
+3. c(x1)=−1,c(x2)=−1
+4. c(x1)=−1,c(x2)=+1
+
+A. 2
+
+Variance means how far the points are distributed. Covariance of [1001] means that the class has higher density at 0,0,
+while [5005] means that the class has higher density outside the circle around 0,0.
+
+### Practice Exam 2 - Q5 (Curves)
+![img_1.png](2510img/iiimg_1.png)<br>
+This figure shows the error rate of a classifier for a fixed training set size, for different sizes of the set of features. Which curve represents the apparent error, and which curve represents the true error? Does using m features or n features give better generalization performance?
+
+1. A: true error, B: apparent error, using m features is better than using n features
+2. A: apparent error, B: true error, using m features is better than using n features
+3. A: true error, B: apparent error, using n features is better than using m features
+4. A: apparent error, B: true error, using n features is better than using m features
+
+A. B
+
+The apparent error is expected to be lower and monotonic.<br>
+The true error is expected to have a concave shape.<br>
+Therefore A is apparent error, and B is true error. Also we can conclude that using m features is better than n.
+
 ## Week 3. Non-parametric Generative Models & Evaluation
 
 ### Practice Exam 1 - Q18 (K-NN ties)
@@ -71,6 +116,40 @@ A. 1
 - Random flip chooses exactly one at random
 - It might be that the prior probabilities are the same
 - This only works for c = 2
+
+### Practice Exam 2 - Q24 (K-nn)
+Q. Which of the following statements is true for k-NN classifiers?
+
+1. The classification accuracy is always better with larger values of k.
+2. k-NN is not sensitive to feature scaling.
+3. The decision boundary is linear.
+4. k-NN does not require an explicit training step.
+
+A. 4
+
+1. Too large value of k can lead to underfitting
+2. k-nn is sensitive to feature scaling, because it is a classifier that looks at the distances.
+3. K-nn is a non-linear generative model
+4. True, because it computes distances for all the test data points and compute the label.
+
+### Practice Exam 2 - Q25 (Naive Bayes)
+Q. Select all TRUE statements about Naive Bayes.
+
+1. Naive Bayes can deal with correlated features.
+2. Naive Bayes is sensitive to feature scaling.
+3. Naive Bayes can handle high dimensional feature spaces.
+4. Naive Bayes has a fast training time.
+5. Naive Bayes can handle continuous and discrete data.
+6. Naive Bayes doesn’t need much training data.
+
+A. 3,4,5,6
+
+1. Naive Bayes work by assuming that all features are independent and individually distributed (i.i.d)
+2. Naive Bayes is not sensitive to feature scaling
+3. Naive Bayes just multiplies all the feature values, so it can handle high-d feature space
+4. It has a fast training time
+5. It just multiplies the features, so true
+6. True
 
 ## Week 4. Linear Discriminative Models
 ### 1. Discriminative objective (*)
@@ -271,6 +350,85 @@ A. 310
 In each iteration of the inner loop, we train 10 * 3 models to find the optimal setting among the 3 values of the hyperparameter, and then we train a model on all data in the training set for this iteration using this optimal setting.<br>
 Since the outer loop has 10 iterations, we need to  fit 31 * 10 = 310 models.
 
+### Practice Exam 2 - Q4 (Regression)
+Q. Suppose we trained a linear regression model h(x) on a dataset with a single feature x, and we find parameters w0=−4 and w1=2. Consider the following two predictions of this model: h(4) and h(8). Which statement is true?
+
+1. h(4)/h(8)=2
+2. h(8)/h(4)=2
+3. h(8)/h(4)=3
+4. h(4)/h(8)=3
+5. h(4)/h(8)=4
+6. h(8)/h(4)=4
+
+A. 3
+
+In linear regression, h(x) = wTx + w0<br>
+h(4) = 4*2 -4 = 4
+h(8) = 8\*2 -4 = 12
+
+h(8)/h(4) = 12/4 = 3
+
+### Practice Exam 2 - Q6 (Thresholds)
+Q. Given a decision function g(x) for a binary classifier, consider the example of an ROC curve as given in the figure. When we increase the threshold used for the classifier, what typically happens to the sensitivity (true positive rate) and specificity (true negative rate) of the classifier?
+![img_3.png](2510img/iiimg_3.png)
+
+1. The sensitivity will increase, the specificity will decrease.
+2. The sensitivity will decrease, the specificity will increase.
+3. Both will increase
+4. Both will decrease
+
+A. 2
+
+Increase in threshold means that more gets classified as false, and less gets classified as true.
+Therefore:
+- True positive decreases
+- False positive decreases
+- True negative increases
+- False negative increases
+
+Which means that:
+- Sensitivity (true positive rate) decreases
+- Specificity (true negative rate) increases
+
+### Practice Exam 2 - Q7 (Support Vector Classifier)
+Q. Given are four statements about Support Vector Classifiers, indicate which statement is true.
+
+1. The objective of the support vector training procedure is to minimize the function J(w)=1/2∗||w||^2
+2. The objective of the support vector classifier training procedure is to minimize the value of 2/||w||
+3. For the support vector classifier the constraints say that it is enough for the positive objects to have wT∗x>=0 and for the negative classes to have wT∗x<0
+4. Support Vector Classifiers are low bias and high variance classifiers.
+
+A. 1
+
+1. We want to maximise the margin, which is calculated by 2/||w||. This is equivalent as minimising 1/2 * ||w||^2.
+2. We want to maximise 2/||w||
+3. The positive objects have wTx - b > 0, and the negative objects have wTx - b < 0
+4. SVM is a high bias and low variance classifier, because it is underfitting - linear models that model unlinear data is usually underfitting.
+
+### Practice Exam 2 - Q8 (ERM)
+Q. Fill in the blank: In the empirical risk minimization framework, we minimise the empirical risk over all functions that are elements of the (ANSWER).
+
+1. Hypothesis class
+2. Loss function 
+3. Maximum Likelihood 
+4. Gradient Descent
+
+A. 1
+
+"The empirical risk minimisation principle states that the learning algorithm should choose a hypothesis h which minimises the empirical risk."
+
+### Practice Exam 2 - Q20 (Discriminative approaches)
+Q. Which of the following best describes what discriminative approaches try to model? (w are the parameters of the model.)
+
+1. p(y|x,w)
+2. p(y|w)
+3. p(x|y,w)
+4. p(w|x,y)
+
+A. 1
+
+Discriminative models directly estimate the distribution for the decision boundary, which is p(y|x).
+
 ## Week 5. Biases & Fairness
 
 ### 1. Bias
@@ -378,6 +536,40 @@ Q. Ethics in/of machine learning is really important. As computer scientists we 
 - Bias is primarily caused by inadequate or even evil programmers.
 
 A. 1,3
+
+### Practice Exam 2 - Q19 (Ethics)
+Q. The introduction of IT and machine learning on decision-making has made life a lot easier for many people. People simply need to fill in an online form to apply for something and the decision about the application is quickly made. However, there are problems with this increasing dependency on software. Name three and describe them in maximally 2 sentences each.
+
+A.
+- Many people are computer illiterate and do not know or cannot fill online forms
+- Forms are processed digitally, no room for sympathy or empathy for the applicant by the computer
+- Data is shared between different companies and offices, and these data do not always have the same meaning
+- Decisions are pre-programmed by programmers who are not decision makers and do not know anything of the process about which they develop the software to make the decision
+- The underlying algorithm might be biased against certain group of people
+- It is hard to make an appeal against a decision by the person affected.
+
+### Practice Exam 2 - Q22 (Fairness in ML)
+Q. An important part of developing software based on machine learning techniques is ensuring that the outcome of the model is as fair as possible. Which of the following statements related to fairness in machine learning are correct?
+
+1. One can try to be fair to similar groups of people or to similar people, but not to groups and individuals at the same time.
+2. Assuming that different people have different abilities for a given task is a form of fairness.
+3. Fairness can be viewed as equal opportunities for everyone irrespective of their skills set.
+4. In order to improve fairness one only needs to change the distribution of the training data.
+
+A. 1,2,3
+
+1. In fairness, there can be individual fairness or group fairness but not individual to group.
+2. WYSIWIG approach
+3. WAE approach
+4. . 
+
+### Practice Exam 2 - Q23 (Bias)
+Q. Harmful biases in ML applications are not always known or predictable before they are put into practice. Which statements about biases are correct?
+
+1. An ML application is as biased as it is taught to be; ‘garbage in, garbage out.’ ML applications are not inherently biased.
+2. Despite the current opacity in the working of many ML applications, further research may allow us to make them fully transparent and explainable. Once we understand better how complex ML application work, we can systematically get rid of any harmful biases.
+3. Shifts in the domain of application of an ML application can lead to the application suddenly exhibiting harmful biases.
+
 
 ## Week 6. Non-Linear Discriminative Models
 
@@ -518,6 +710,22 @@ A. 2
 
 Scaling the train and the test set by the same factor does not affect the prediction of the decision tree, as the decision boundary stays the same with respect to the data points.
 
+### Practice Exam 2 - Q10 (Continuous variables)
+Q. Consider splitting on a continuous feature during the training of a decision tree classifier. Which of the following is always true?
+
+1. Scaling the feature values has no effect on the information gain.
+2. If the same feature was already used to split in a higher node in the tree (closer to the root), using it again can never improve the tree.
+3. The number of thresholds for the split we need to consider is quadratic in the number of objects in the node.
+4. Splitting on a continuous feature will lead to higher information gain than splitting on a discrete feature.
+
+A. 1
+
+1. In decision trees, feature scaling has no effect.
+2. We can use a feature again and get information gain
+3. No, because we can split into more than two nodes.
+4. Splitting on a discrete feature usually has higher information gain
+
+
 ## Week 7: Unsupervised Learning
 ### 1. k-means
 - Q. Given are four points: (2, 2), (8,6), (6,8), (2,4) and two randomly selected cluster centroids μ1 = (2,8) and μ2 = (7,2).<br>
@@ -551,7 +759,7 @@ Q. What is a dendrogram?<br>
 - a tree diagram used to illustrate the arrangement of clusters in partitional clustering.
 - a tree diagram used to illustrate the arrangement of clusters in hierarchical clustering.
 
-<br>
+![img_2.png](2510img/iiimg_2.png)<br>
 A. 4
 
 ### 5. K-means
@@ -650,3 +858,72 @@ Choose the correct statement:
 A. 2
 
 The eigenvalues are for us to choose the eigenvalues with the highest variance.
+
+### Practice Exam 2 - Q11 (Hierarchical clustering)
+Q. Agglomerative hierarchical clustering is used for clustering a dataset of non-overlapping points. The following parameters were used in the setup:
+- Merging rule: Single linkage
+- Distance measure: Euclidean
+
+In each iteration of the hierarchical clustering, a new cluster is created. If the merging rule changes to complete linkage, how would that affect the creation of a cluster after the very first iteration of the algorithm. Choose the correct answer from the choices below:
+
+1. Single linkage seeks more isolated groups, so the sum of distances measured between points of the first cluster using complete linkage will be larger.
+2. Complete linkage seeks more internal cohesion, so the sum of distances measured between points of the first cluster using complete linkage will be smaller.
+3. The first cluster created might not be the same when using different merging rule.
+4. None of the answers are correct
+5. All of the answers are correct
+
+A. 4
+
+Single linkage seeks more internal cohesion by taking the closest cluster, while complete linkage seeks more isolated groups.<br>
+Also, merging rule does not affect the first cluster because it applies on computing the distance between clusters after the cluster is made.
+
+### Practice Exam 2 - Q12 (PCA)
+Q. For a given dataset represented by feature vectors of length 6 (6 features per datapoint), the PCA technique is performed and resulted in the following eigen_pairs:
+
+- λ1 = 8 , with eigenvector e1=[1,0,0,0,0,0]
+- λ2 = 3 , with eigenvector e2=[0,1,0,0,0,0]
+- λ3 = 1.5 , with eigenvector e3=[0,0,1,0,0,0]
+- λ4 = 1 , with eigenvector e4=[0,0,0,1,0,0]
+- λ5 = 0 , with eigenvector e5=[0,0,0,0,1,0]
+- λ6 = 0 , with eigenvector e6=[0,0,0,0,0,1]
+
+Answer the following:
+1. Using the elbow method, which PCA components should be chosen for the dimensionality reduction?
+2. What is the intrinsic dimensionality of this data?
+
+A.
+1. λ1, λ2, λ3, using the elbow method. This is because the elbow will be located at λ3.
+2. 4 dimensions.
+
+### Practice Exam 2 - Q13 (PCA - definition)
+Q. Which of the following statements about PCA is incorrect:
+
+1. The components we find become the new dimensions of our data.
+2. The principal components are ordered from those that account for the largest variance to the ones that account for the smallest variance in the data.
+3. The principal components are given by the eigenvectors of the data matrix. 
+4. In practice, we tend to use power iteration since it is faster to compute than the analytical solution.
+
+A. 3
+
+1. We project the data onto the components, so true
+2. The components that account for the largest variance is prioritised.
+3. We use the covariance matrix, not data matrix
+4. Power iteration is faster
+
+### Practice Exam 2 - Q14 (K-means)
+Q. After a certain number of iterations of the k-means algorithm applied with two clusters and Euclidean distance metric we know the following about the clusters:
+- Centroid 1: (-2, 2, 3), number of points: 9
+- Centroid 2: (4, 3, 5), number of points: 4
+
+We know that only a single sample S at (2, -1, 2) changed its cluster. Indicate the cluster to which S will be assigned and its new centroid.
+
+1. Cluster 1 with new centroid at (0,0.5,1.5)
+2. Cluster 1 with new centroid at (-1.6, 1.7, 2.9)
+3. Cluster 2 with new centroid at (3, 1, 3.5)
+4. Cluster 2 with new centroid at (3.6, 2.2, 4.4)
+
+A. 2
+
+Computing the euclidean distance from the point to 2 centroids, we learn that centroid 1 is closer and therefore the point is assigned to cluster 1.<br>
+New centroid = (-2*9, 2\*9, 3\*9) + (2, -1, 2) / 10 = (-16, 17, 29) / 10 = (-1.6, 1.7, 2.9)
+

@@ -126,6 +126,7 @@ Weak consistency models have better performance.
   - Writes follow reads: if write is followed by a read on x, it is guaranteed to be on the same or more recent value
 <br>
 <br>
+
 - Sequential consistency
   - The operations appear to take place in some total order that is consistent with the order of operations on each replica
 - Linearizability

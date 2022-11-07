@@ -371,6 +371,8 @@ A learning curve shoes how our error is changing with the number of training sam
 - Apparent error is usually lower, and it increases with increasing number of training set
 - True error is usually higher, and it decreases with increasing number of training set
 
+A very complex classifier is flexible enough to to model any decision boundary if it is given a lot of training set.
+
 ## Bias-Variance dilemma
 Bias
 - error from erroneous assumptions in the learning algorithms

@@ -251,3 +251,96 @@ Perceptron training
    3. The general to update weights is as follows :w_t <- w_(t-1) - α(δΕ/δw), where
       - α is the learning rate
       - δΕ/δw are partial derivatives of the error function E with respect to each weight of the array w
+
+
+## 3. Unsupervised learning
+
+### Clustering
+1. Proximity measure
+   - Similarity measure, or Dissimilarity measure using:
+     - Euclidean, Manhattan, Minkowski, etc
+2. Cluster evaluation
+   - Intra-cluster cohesion (compactness)
+     - measures how near the datapoints are to the cluster's mean
+     - calculated by the sum of squared errors
+   - Intro-cluster separation (isolation)\
+     - measures the distance between two clusters
+     - which should be as large as possible
+3. Clustering algorithms
+   - K-means
+   - Hierarchical
+
+#### K-means clustering
+Partition the given data into k clusters with cluster centroid (mean)
+1. Choose k (random) data points to be initial centroids
+2. Assign each data point to the closest centroid
+3. Recompute the centroids using the current cluster memberships
+4. If a convergence criterion is not met, repeat steps 2 and 3
+   - Convergence criterion
+     - No (or minimum) re-assignments of data points to different clusters
+     - No (or minimum) change of centroids or
+     - Minimum decrease in the sum of squared errors
+
+Choosing k
+- Inspect visually
+- Known purpose
+- Elbow method
+
+#### Hierarchical clustering
+We form a dendrogram; the top level contains all the points, and the bottom level contains one cluster per data point
+
+Two approaches
+1. Bottom-up (agglomerative)
+   1. each point starts as a cluster
+   2. merge the two closest clusters
+     - determine the distances between all clusters
+     - merge clusters that are the closest
+       - Single linkage: two nearest objects in the clusters
+       - Complete linkage: two remote objects in the clusters
+       - Average linkage: clusters centers
+     - If all the points don't belong to one cluster, repeat
+   3. stop at some point
+2. Top-down (divisive)
+   1. All points start in one cluster
+   2. split the cluster in a sensible way
+      - run k-means on the original data
+      - on each resulting cluster, run k-means again
+   3. stop at some point
+
+### Dimensionality Reduction
+We can reduce the dimensionality to:
+- make storage or processing of data easier
+- discovery of hidden patterns in the data
+- remove redundant and noisy features
+- intrinsic dimensionality might be smaller
+
+1. Feature selection
+2. Feature extraction
+
+#### PCA
+Principal components analysis (PCA) maps the data onto a linear subspace, such that the variance of the projected data is maximised
+
+We have to look at eigenvectors and eigenvalues of the covariance matrix. We prioritise the eigenvectors with higher eigenvalues, because they account for greater variance.<br>
+Calculating how much an eigenvector accounts for the total variance can be computed by: (corresponding eigenvalue) / (sum of all eigenvalues)
+
+Finding eigenpairs:
+1. Pivotal condensation
+   - Restate the definition of eigenpair as (M - λI)e = 0, which holds if the determinant of (M - λI) is 0. (M: original matrix, λ: eigenvalue, e: eigenvector, I: identity matrix)
+2. Power iteration
+    1. Start with any unit vector x0
+    2. compute Mxk until xk+1 := Mxk / ||Mxk|| converge
+        1. get Sx0 vector
+        2. compute the sum of squares of the vector components (frobenius norms)
+        3. divide each component of the vector by frobenius norms to obtain x1
+        4. repeat until convergence
+    3. the limiting vector is the principal eigenvector
+    4. when converged, compute the eigenvalue λ1 = xT M x
+    5. to find a second eigenpair, create a new matrix M* = M - λ1 x xT
+    6. use power iteration on M* and so on
+
+Issues of PCA:
+1. Covariance is extremely sensitive to large values
+2. PCA assumes the underlying subspace is linear so we need to transform it to handle non-linear spaces
+
+PCA is an unsupervised discriminative model
+

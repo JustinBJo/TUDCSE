@@ -270,3 +270,251 @@ Partitioning is done for scalability (running queries, reads, and writes in para
 - Custom partitioning
 
 Request routing: a query router directs the clients to appropriate partitions.
+
+
+## 3. Distributed filesystem
+### 1. Filesystem and Distributed FS
+File systems determine how data is stored and retrieved<br>
+A file system keeps track of files, directories, and metadata<br>
+File systems make data accessible at any time, and they keep logs to maintain consistency
+
+Distributed filesystems are filesystems that are shared by being simultaneously mounted on multiple servers.<br>
+Data in a distributed filesystem is partitioned and replicated across the network.<br>
+Read and Writes can occur at any node.
+
+### 2. Google file system (GFS)
+- A single file can contain many objects
+- Files are divided into 64MB chunks with ids
+- Files are replicated across chunk servers
+- Master keeps all metadata
+- Chunkservers keep chunks on local disk as linux files
+  - Neither the client nor the chunkserver can cache file data
+- GFS is a journaled filesystem: all operations are added to a log first, then applied
+
+### 3. Hadoop filesystem (HDFS)
+- NameNode = Master
+- DataNode = Chunkserver
+- journal = operation log
+- block = chunk, but 128MB
+
+### 4. GFS vs HDFS
+- HDFS is append-only, where in GFS write is random
+- HDFS has one writer and multiple readers, but GFS has multiple writers and readers
+- HDFS block is 128MB, whereas GFS chunk is 64MB
+
+
+# 5. Spark
+## 1. What is Spark?
+> Spark is an open source cluster computing framework.
+
+Spark:
+- automates distribution of data and computations on a cluster of computers
+- provides a fault-tolerant abstraction to distributed datasets
+- is based on functional programming primitives
+- provides two abstractions to data: list-like(RDD) and table-like(Dataset)
+
+## 2. RDDs
+> Resilient Distributed Datasets<br>
+> The core abstraction used by Spark
+
+RDD characteristics:
+- immutable
+- reside mostly in memory
+- are transparently distributed
+- feature all FP programming primitives
+
+RDD creation
+1. reading from external file
+2. converting a local dataset
+3. transforming another RDD
+
+RDD transformations: type of RDD operation that returns a new RDD. Lazy
+1. map
+2. flatMap
+3. filter
+
+RDD actions: returns a computation of a result. Eager
+1. collect
+2. take
+3. reduce, fold
+4. aggregate
+
+Pair RDDs: RDD of a key-value pair<br>
+Pair RDD transformations:
+1. groupByKey
+2. reduceByKey
+3. aggregateByKey
+4. join
+   - inner join
+   - outer joins (left, right, full)
+
+## 3. Spark Internals
+RDDs are characterised by five main properties:
+1. a list of partitions
+2. a function for computing each split
+3. a list of dependencies on other RDDs
+4. a partitioner for Pair RDDs (optional)
+5. a list of preferred locations to compute each split on (optional)
+
+### Partitions
+RDDs are split into partitions. Partitions define a unit of computation and persistence
+
+3 partitioning schemes:
+1. Default partitioning: splits in equal sizes
+2. Range partitioning: only configurable in pair RDDs. Splits in natural ordering of keys
+3. Hash partitioning: only configurable in pair RDDs. Splits with modulo of hashes
+
+Partition dependencies:
+1. Narrow: from one source to one target partition. Examples: map, filter, union
+2. Wide: from one source to many target partitions. Requires shuffling. Examples: groupByKey, reduceByKey
+
+Shuffling: process of re-arranging data so that similar records end up in the same partitions
+
+### RDD lineage
+Information on how to compute themselves for fault tolerance.<br>
+Lineage information allow an RDD to be traced to its ancestors.
+
+
+## 4. Spark SQL
+Spark with datasets and dataframes<bR>
+- Datasets: collections of strongly-typed objects.
+- Dataframes: dataset of dataset rows
+
+RDD vs Dataset:
+- Similarity
+  - strongly typed
+  - contain objects that need to be serialised
+- Difference
+  - Dataset use special encoders to convert the data in compact internal formats so that Spark can directly apply operations
+
+Dataframe operations
+1. Projection
+   - select
+   - drop
+2. Selection
+   - filter
+3. Join
+   - inner
+   - outer
+4. Grouping and Aggregations
+   - groupBy
+   - Aggregations only work after groupBy
+
+SparkSQL is fast because it uses Optimisation and Code generation
+
+
+# 5. Stream Processing
+## 1. Introduction
+> Stream processing is a set of techniques and corresponding systems that process timestamped events.<br>
+> Stream processing applies an algorithm on continuously updating data and continuously creates results.
+
+Bounded vs Unbounded data
+- Bounded data: dataset that can be enumerated and/or iterated upon
+- Unbounded data: dataset that we can only enumerate given a snapshot. They do not have a size property
+
+Stream processing system requires two components:
+1. A component that acquires events from producers and forwards it to consumers (Messaging systems)
+2. A component that processes events (Programming models)
+
+## 2. Messaging systems
+### Publish/Subscribe
+An N-to-N messaging system
+- Direct messaging systems
+  - use simple network communication (usually UDP) to broadcast messages to multiple consumers
+  - they are fast but there is data loss
+- Message brokers/Queues
+  - centralised systems that sit between producers and consumers
+  - deal with the complexities of reliable message delivery
+
+### Broker-based messaging
+The producers send messages in any of the following modes:
+- Fire and forget: the broker acks the message immediately
+- Transaction-based: the broker writes the message to permanent storage prior to acking it
+
+Messaging patterns:
+1. Competing workers
+2. Fan out
+3. Topics
+
+Drawback: after a message is received, it disappears
+1. we cannot reprocess images
+2. we cannot prove that a message was delivered
+
+To solve this, we can store before forwarding the message.
+
+### Log-based messaging system
+A log is an append-only data structure stored on disk.<br>
+We can exploit logs to implement messaging systems:
+1. Producers append messages to the log
+2. The broker partitions and distributes the log to a cluster of machines (for performance) and keep track of the current message offset for each consuemr per partition
+3. All consumers connect to the log and pull messages from it. A new client starts processing from the beginning of the log
+
+
+## 3. Programming models
+Programming models for streams enable processing of events to derive a state.
+
+### 1. Event sourcing & CQS
+Capture all changes to an application state as a sequence of events
+
+Instead of mutating the application state, we store the event that causes the mutation in an immutable log.
+
+### 2. Reactive programming
+Declarative programming paradigm concerned with data streams and the propagation of change
+
+Reactive APIs model event sources as infinite collections on which observers subscribe to receive events
+
+### 3. The DataFlow model
+The DataFlow model attempts to explain stream processing in What, Where, When, How.
+- What: results are being computed
+- Where: in event time they are being computed
+- When: in processing time they are materialised
+- How: earlier results relate to later refinements
+
+Processing time vs Event time
+- Processing time: the time at which the event is observed in the system
+- Event time: the time at which the event occurred
+- Skew: processing time - timestamp of the latest event processed
+- Lag: processing time - actual timestamp of the event
+
+#### What: operations on streams
+1. Element-wise operations
+   - map
+   - filter
+   - merge
+   - flatMap
+   - keyBy
+   - join
+2. Aggregations
+
+#### Where: Streaming Windows
+Windows are static size or time-length "batches" of data.
+1. Tumbling windows
+   - Events cut into fixed sizes based on count, time etc
+   - No overlaps
+2. Jumping windows
+   - Window time size & advance interval
+   - Overlaps can happen
+3. Sliding windows
+   - Produce an output only when events occur
+   - Every window has at least on event
+   - Overlaps can happen
+4. Session windows
+   - Group events that arrive at similar times and filters out periods of time without any data
+   - timeout, maximum duration, partitioning key
+
+Things to remember:
+- Buffering: aggregation functions are applied when the window finishes. In-flight events need to be buffered to RAM.
+- Completeness: given that events may arrive out of order, how can we know that a window is ready to be materialised? => Window triggers
+
+#### When: Window Triggers
+A trigger defines when in processing time the results of a window are processed
+Types of triggers:
+- Per-record triggers: fire after x records in a window
+- Aligned delay triggers: fire after a specified amount of time for every windows
+- Unaligned delay triggers: fire after a specified amount of time after the first event in each window
+
+Watermarks:
+- Declaration that by a point in stream, all events carrying a timestamp up to the watermark timestamp should have arrived.
+- Watermarks allow late messages to be processed up to a specified amount of (event-time) delay.
+
+#### How: Window Refinements

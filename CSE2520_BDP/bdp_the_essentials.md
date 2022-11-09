@@ -49,7 +49,7 @@ Types of processing:
 3. Higher order functions
 4. Laziness
 
-[Function signatures](2.programming_for_bd.md#Functions and signatures)
+[Signatures](2.programming_for_bd.md#Functions and signatures)
 
 
 # 3. Unix

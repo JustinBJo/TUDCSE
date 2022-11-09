@@ -170,7 +170,7 @@ Steps:
         - if an acceptor receives an accept request for a proposal numbered n
         - it accepts the proposal unless it has already responded to a prepare request having a n >= the proposal number
 
-![img_9.png](img_9.png)<br>
+![img_9.png](2520img/iiimg_9.png)<br>
 
 <br>
 

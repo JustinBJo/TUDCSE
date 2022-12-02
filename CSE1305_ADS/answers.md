@@ -221,7 +221,3 @@ Types of recursive functions:
 
 
 # Week 3
-## 1
-1. each node in the list
-2. the references
-3. no

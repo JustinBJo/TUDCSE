@@ -9,7 +9,6 @@
 3. T
 4. F
 
-
 ## 2
 line 1: c0 = 1 (calling the method)<br>
 line 2: c1 = 2 (initialisation, getting the length of arr) <br>
@@ -22,7 +21,6 @@ T(n) = c0 + c1 + c2 + c3 + c4 + n * c5 + n * c6 <br>
      = (c4 + c5) * n + c0 + c1 + c2 + c3 + c6<br>
      = 3n + 7  
      = O(n)
-
 
 ## 3
 f1:<br>
@@ -55,7 +53,6 @@ The method is called n times.
 T(n) = (c0 + c1 + c2 + c3 + c4) * n<br>
      = O(n)
 
-
 ## 4
 1. 2^15, 2log2n, 2n+100log2n, 6n, 2nlog2n, 4nlog2n+2n, n^2+5n, 100n^3, 2^n
    - 2^n -> O(2^n)
@@ -68,7 +65,6 @@ T(n) = (c0 + c1 + c2 + c3 + c4) * n<br>
    - 2^15 -> O(1)
    - 2nlog2n -> O(nlogn)
 2. 1, 2
-
 
 ## 5
 
@@ -89,7 +85,6 @@ T(n) = (c0 + c1 + c2 + c3 + c4) * n<br>
    - not necessarily, because T(n) is in terms of T(n-5) which means it is number of times it was called / 5.
    - incorrect
    - it is the length of the input array.
-
 
 ## 7
 1. T(n) = T(n-2) + c, T(-2) = T(-1) = b
@@ -132,13 +127,11 @@ T(n) = (c0 + c1 + c2 + c3 + c4) * n<br>
    - We know that c and b are all positive, so we can tell that all terms are positive (or zero)
    - The equation holds.
 
-
 ## 8
 1. True
 2. False
    - If the array is never used it can be less than n.
 3. False
-
 
 ## 9
 1. False
@@ -152,13 +145,11 @@ T(n) = (c0 + c1 + c2 + c3 + c4) * n<br>
 9. False
 10. True
 
-
 ## 10
 1. False
 2. 5
 3. 3
 4. 6
-
 
 ## 11
 1. Linear recursion
@@ -173,3 +164,64 @@ Types of recursive functions:
   - more than twice
 
 
+# Week 2
+## 1
+1. T
+2. F
+3. T
+4. T
+5. F
+6. F
+7. T
+
+## 2
+1. addFirst
+2. DLL
+
+## 3
+3
+- We don't have to manually set to null because there is no prev pointer and the garbage collector will remove the implicit head.
+
+## 4
+1. addFirst
+2. removeLast
+3. addFirst
+4. removeFirst
+
+## 5
+1. dequeue
+2. Queue
+3. Array
+
+## 6
+1. T(n) = c0 + c1n + c2(n+1) = c3 + c4 * n
+   - c3 = c0 + c2
+   - c4 = c1 + c2
+   - n is the size of the stack s
+   - c0 represents the constant-time operations on line 2, 3, 4[1], 8, 9, 10[1], 14
+   - c1 represents the constant-time operations on line 4[3], 5, 10[3], 11
+   - c2 represents the constant-time operations on line 4[2] and 10[2]
+2. O(n)
+   - constant term c3 can be discarded because as n grows larger, the constant term has little impact on the growth rate of the function
+   - coefficient c4 can also be discarded because with or without c4 the function has linear growth rate
+   - therefore we are left with T(n) = n, which has O(n) complexity.
+
+## 7
+1. T(n) = c0 + c1n + c2(n+1) = c3 + c4 * n
+   - c3 = c0 + c2
+   - c4 = c1 + c2
+   - n is the size of the queue q
+   - c0 represents the constant-time operations on line 2, 3, 4, 5[1], 15, 16[1], 20
+   - c1 represents the constant-time operations on line 5[3], 6, 10, 11, 16[1], 17
+   - c2 represents the constant-time operations on line 5[2] and 16[2]
+2. O(n)
+    - constant term c3 can be discarded because as n grows larger, the constant term has little impact on the growth rate of the function
+    - coefficient c4 can also be discarded because with or without c4 the function has linear growth rate
+    - therefore we are left with T(n) = n, which h
+
+
+# Week 3
+## 1
+1. each node in the list
+2. the references
+3. no

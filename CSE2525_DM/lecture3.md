@@ -13,11 +13,8 @@ We have many functions that represents distances:
 - ...
 
 We call these distance metrics.<BR>
-A distance metric d(.,.) should satisfy the metric properties:
-- Non-negativity: d(A,B) >= 0 (distance should never be negative)
-- Identity: distance is only 0 between identical objects
-- Symmetry: direction does not matter (d(A,B) = d(B,A))
-- Triangle inequality: taking a detour through a third point is never shorter
+A distance metric d(.,.) should satisfy the metric properties:<br>
+![img.png](img.png)
 
 ### 1) Distances between Sets
 
@@ -61,6 +58,8 @@ Euclidean properties:
 
 ### L_p-norm
 Generalised Minkowski distance
+
+![img_1.png](img_1.png)
 - L_0 = Non-zeros
 - L_1 = Manhattan distance
 - L_2 = Euclidean distance
@@ -83,7 +82,8 @@ Generalised Minkowski distance
   - When used on maps it is an (extreme) lower bound on the actual distance
 
 #### Cosine
-Measures the angle between two vectors
+Measures the angle between two vectors.<br>
+Cosine only looks at the direction of vectors, not at the length of these vectors.
 
 ![img_11.png](images/img_11.png)
 
@@ -140,7 +140,7 @@ Algorithm
 
 Assumptions
 - the relationships between the features are linear.
-- the direction with largest variance is the most informative
+- the direction with the largest variance is the most informative
 - the principal components are orthogonal, i.e. linearly independent and uncorrelated
 
 Pros and Cons

@@ -16,11 +16,16 @@ This is actually not a distance measure.
 
 KL(P||Q) != KL(Q||P) (KL is not symmetric)
 
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
+
+<BR>
+<BR>
 
 #### Jean-Shannon divergence
-A symmetrised, smoothed version of KL divergence
-- JS(P||Q) = 1/2 * KL(P||M) + 1/2 * KL(Q||M)
-- with M = (P+Q)/2
+A symmetrised, smoothed version of KL divergence<br>
+![img_4.png](img_4.png)
 
 Unlike KL-divergence, it is a metric. Moreover, it will not be infinite when P or Q becomes 0.
 
@@ -50,6 +55,7 @@ Shapes are often a good visualisation of data. In order to compare shapes, we ne
 - Lines are not allowed to cross, keeping shape intact
 
 Computing Time-warping distance<BR>
+Find a minimum cost path from left top to bottom right, without going left or up<br>
 ![img_18.png](images/img_18.png)
 
 ![img_19.png](images/img_19.png)

@@ -52,14 +52,8 @@ Sliding windows
     - ![img_36.png](images/img_36.png)
     - ABCD is repeated, so just have windows starting at A and we have repeating windows with ABCD
 
-Compute the residual
-- Use sliding windows from training data to learn a model f for predicting the next value:
-  - y_k = f(y_(k-1)) + ε
-- Compute the expected next value
-  - ^y_k|k-1 = f(y_(k-1))
-- Evaluate the residual using the real next value
-  - r_k = y_k - ^y_k|k-1
-- If the residual is too large(beyond threshold) we throw an alarm
+Compute the residual<br>
+![img_5.png](img_5.png)
 
 Pitfall: cross validation
 - Cross-validation fails for time series

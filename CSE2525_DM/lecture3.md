@@ -22,7 +22,7 @@ A distance metric d(.,.) should satisfy the metric properties:
 ### 1) Distances between Sets
 
 #### Jaccard similarity
-- ![img_8.png](img_8.png)
+- ![img_8.png](images/img_8.png)
 - 3/8 in the above example
 - The Jaccard distance is 1 - Jaccard similarity
 - Applications
@@ -33,7 +33,7 @@ A distance metric d(.,.) should satisfy the metric properties:
 
 ### 2) Distances between Vectors
 #### Euclidean
-![img_9.png](img_9.png)
+![img_9.png](images/img_9.png)
 
 When used on maps, it is the lower bound of the actual distance
 
@@ -85,7 +85,7 @@ Generalised Minkowski distance
 #### Cosine
 Measures the angle between two vectors
 
-![img_11.png](img_11.png)
+![img_11.png](images/img_11.png)
 
 Use cases:
 - Comparing bag-of-word vectors of documents
@@ -98,7 +98,7 @@ Cosine properties:
 #### Hamming
 Compare two bit sequences (counts the number of dissimilar bits)
 
-![img_10.png](img_10.png)
+![img_10.png](images/img_10.png)
 
 
 #### ISOMAP
@@ -164,12 +164,12 @@ What does it do?
   - Aims to both "pull together" neighbouring points as much as possible, and "push apart" distant points as much as possible
 
 Algorithm<br>
-![img_12.png](img_12.png)
+![img_12.png](images/img_12.png)
 
 Cost function
-- ![img_13.png](img_13.png)
+- ![img_13.png](images/img_13.png)
 - Optimisation: done by using gradient descent
-  - Gradient: ![img_14.png](img_14.png)
+  - Gradient: ![img_14.png](images/img_14.png)
 
 Pros and Cons
 - Advantages

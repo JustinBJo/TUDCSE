@@ -12,7 +12,7 @@ This is actually not a distance measure.
 - The number of extra bits needed to represent samples from P using Q
 - Information gain or relative entropy
 
-![img_15.png](img_15.png)
+![img_15.png](images/img_15.png)
 
 KL(P||Q) != KL(Q||P) (KL is not symmetric)
 
@@ -39,20 +39,20 @@ Statistical distance in practice
 
 ### Sequential distances
 Shapes are often a good visualisation of data. In order to compare shapes, we need to scale the series:<BR>
-![img_16.png](img_16.png)
+![img_16.png](images/img_16.png)
 - for every data point ci, where μ is the mean and σ is the standard deviation of the series
 - after normalisation, we can compute distances between sliding windows
 
 #### Dynamic Time Warping (or sequence alignment)
 - Sometimes the shapes of two series can be similar, but out of phase
 - In order to compare the distance of these two series, we align time-series non-linearly in time to find the best match
-- ![img_17.png](img_17.png)
+- ![img_17.png](images/img_17.png)
 - Lines are not allowed to cross, keeping shape intact
 
 Computing Time-warping distance<BR>
-![img_18.png](img_18.png)
+![img_18.png](images/img_18.png)
 
-![img_19.png](img_19.png)
+![img_19.png](images/img_19.png)
 
 Applications
 - Speech recognition
@@ -64,7 +64,7 @@ Applications
 #### Sequence alignment
 - Discrete variant of time-warping
 - Build matrix using dynamic programming:
-  - ![img_20.png](img_20.png)
+  - ![img_20.png](images/img_20.png)
   - W is a gap penalty
 
 Applications
@@ -78,15 +78,15 @@ Counts the number of operations to go from A to B:
 - Insertion of characters
 - Deletion of characters
 
-![img_21.png](img_21.png)<BR>
-![img_22.png](img_22.png)<BR>
-![img_23.png](img_23.png)
+![img_21.png](images/img_21.png)<BR>
+![img_22.png](images/img_22.png)<BR>
+![img_23.png](images/img_23.png)
 
 DTW is not a distance metric because a distance metric has to follow the metric properties:<BR>
-![img_24.png](img_24.png)
+![img_24.png](images/img_24.png)
 
 But DTW does not satisfy Triangle inequality
-<BR>![img_25.png](img_25.png)
+<BR>![img_25.png](images/img_25.png)
 
 Edit distance is a distance metric, but there exist versions that do not
 
@@ -121,8 +121,8 @@ Within-cluster variation (WCV)
 Row Normalisation
 - In practice, we can normalise every data row and simply apply standard k-means
 
-![img_26.png](img_26.png)<BR>
-![img_27.png](img_27.png)
+![img_26.png](images/img_26.png)<BR>
+![img_27.png](images/img_27.png)
 
 
 K-means is an example of EM learning approach:
@@ -135,7 +135,7 @@ K-means is an example of EM learning approach:
 How to determine k
 - Based on the elbow criterion
 - Sum of squares within the clusters (WCV) for a solution / number of clusters
-- ![img_28.png](img_28.png)
+- ![img_28.png](images/img_28.png)
 
 
 But it might be hard to determine k in practice, so we can also choose...
@@ -190,7 +190,7 @@ DBScan algorithm
 4. Assign border points to the closest connected component
 5. Return all components as clusters
 
-![img_29.png](img_29.png)
+![img_29.png](images/img_29.png)
 
 
 - DBScan does not require Euclidean because it does not use mean or minimised squared error
@@ -234,9 +234,9 @@ Cluster evaluation
 - Let C be the set of all clusters
 - Let 'in' be the cluster the point i is part of
 - Then
-  - ![img_30.png](img_30.png)
+  - ![img_30.png](images/img_30.png)
 - The silhouette coefficient Si for point i is:
-  - ![img_31.png](img_31.png)
+  - ![img_31.png](images/img_31.png)
 - This gives a value in (-1,1) with large positive values good clustering, and negative values somewhat mixed
 
 #### 3. External Validation
@@ -245,7 +245,7 @@ When some class labels are available, or ground truths, we could construct a con
 
 We then look at they Cluster purity.
 
-![img_32.png](img_32.png)
+![img_32.png](images/img_32.png)
 
 
 ## 3. Improved clustering
@@ -318,9 +318,9 @@ Clustering - for each batch of points:
   - keep unclustered points in retained set
 - Merge miniclusters and retained points with older miniclusters, update their statistics
 
-![img_33.png](img_33.png)
+![img_33.png](images/img_33.png)
 
-![](image.png)
+![](images/image.png)
 
 
 ### Clustering - summary

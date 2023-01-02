@@ -26,7 +26,7 @@ which will come later
 ### Contextual anomalies
 An individual data instance is anomalous within a context
 
-![img_34.png](img_34.png)
+![img_34.png](images/img_34.png)
 
 How can we detect these anomalies? -> Sliding windows.
 
@@ -40,7 +40,7 @@ Temporal and Sequential data
   <BR>
 Sliding windows
 - Slice the data dependent on the current time point
-- ![img_35.png](img_35.png)
+- ![img_35.png](images/img_35.png)
 - Usually applied to time-series data
 - Any machine learning method can be used with:
   - standard distance measures, e.g. Euclidean
@@ -49,7 +49,7 @@ Sliding windows
 - But
   - Only takes a fixed-length history into account
   - Causes a modelling blow-up
-    - ![img_36.png](img_36.png)
+    - ![img_36.png](images/img_36.png)
     - ABCD is repeated, so just have windows starting at A and we have repeating windows with ABCD
 
 Compute the residual
@@ -91,7 +91,7 @@ How can we detect collective anomalies in a time series?<br>
   - treat this set C as a datapoint, raise an alarm when C is strange
 
 
-![img_37.png](img_37.png)
+![img_37.png](images/img_37.png)
 
 
 ## 2. Types of anomaly detection methods
@@ -227,10 +227,10 @@ Pros and Cons
   - PCA is sensitive to outliers
 
 ## Autoencoder for anomaly detection
-![img_38.png](img_38.png)
+![img_38.png](images/img_38.png)
 
 Similar to PCA in a sense that we apply something and go back to the original.
 
 <br>
 
-![img_39.png](img_39.png)
+![img_39.png](images/img_39.png)

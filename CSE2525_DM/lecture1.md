@@ -33,7 +33,7 @@ Several ML model assume Gaussian distributed data for computational reasons, tho
 
 Real-world data often follows power laws.<br>
 They usually have long tails, like the example below:<br>
-![img_1.png](img_1.png)
+![img_1.png](images/img_1.png)
 
 To use these data, we often need to lessen the effect of very large values. In order to do this, we usually take the log of the data.<br>
 In other words, we transform the data.
@@ -47,9 +47,11 @@ However, some patterns become obvious only after transformation, so we need to a
 Transform different distributions, or make any data normally distributed via optimisation:
 
 Finding λ for:<br>
-![img_2.png](img_2.png)
+![img_2.png](images/img_2.png)
 
 For different value of λ, Box-Cox can model several transformations.
+
+![img_54.png](images/img_54.png)
 
 In order to optimise λ, we have to try different values and pick the maximum.
 
@@ -60,6 +62,21 @@ In order to optimise λ, we have to try different values and pick the maximum.
 3. Every point x' in the range ((0,1)) has a rank R_D(x') under D()
 4. Map x to x' such that R(x) = R_D(x')
 
+
+#### Feature range and Row normalisation
+Different feature ranges can be a problem because:
+- Computing distances becomes problematic
+- Feature weights are not very meaningful
+- Loss/errors are problems, especially when squared
+
+Solutions for feature range:<br>
+![img_55.png](images/img_55.png)
+
+Even after normalising features, rows have different sizes.<br>
+Row normalisation fixes this by ensuring every row's norm is the same (i.e., sums to 1, or different norm)<br>
+![img_56.png](images/img_56.png)
+
+<br><br>
 
 Deciding which transformation to perform:
 - Depends on
@@ -76,6 +93,8 @@ An example: find similarities between a collection of text documents, using a ma
 
 ### Feature extraction
 Counting the frequency of each word would give a feature vector for each document.
+
+![img_57.png](images/img_57.png)
 
 This process is called feature extraction.<br>
 Afterwards, you can run any classifier on the obtained data.
@@ -100,19 +119,19 @@ Which features to choose?
 ### Feature transformation
 Think of a situation where we need to use categorical data in continuous models.<br>
 Category is a discrete value, but we need to predict them for classes that are continuous.<br>
-Example: ![img_3.png](img_3.png)
+Example: <br>![img_3.png](images/img_3.png)
 
 How can we transform the data to be usable in continuous models?
 1. Label encoding
-   - ![img_4.png](img_4.png)
+   - ![img_4.png](images/img_4.png)
    - However, it can be difficult to separate values.
 2. Target encoding
    - Sort according to positive class probability
-   - ![img_5.png](img_5.png)
+   - ![img_5.png](images/img_5.png)
    - However, it would be "cheating" if the test set is used to determine the label for each category
 3. One-hot encoding
    - Every value is a new column
-   - ![img_6.png](img_6.png)
+   - ![img_6.png](images/img_6.png)
    - Unseen values need to be handled
    - Blow-up in dimensionality
 4. Binning
@@ -235,4 +254,4 @@ Idk, #whateverworks ¯\_(ツ)_/¯
     - multiple imputation
     - point-estimate
 
-![img_7.png](img_7.png)
+![img_7.png](images/img_7.png)

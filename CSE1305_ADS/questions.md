@@ -191,3 +191,38 @@ public int foo2(int a) {
   }
 }
 ```
+
+# Week 2
+## 1. Tail Recursion
+For the following methods, indicate whether they are tail recursive or not.
+
+1
+```
+public int f(int n) {
+  if (n == 0)
+    return 42;
+  else
+    return f(n - 1);
+}
+```
+2
+```
+public int f(int n) {
+  if (n == 0)
+    return 1;
+  else
+    return n * f(n - 1);
+}
+```
+3
+```
+public int f(int n, int m) {
+  if (n == 0)
+    return m;
+  else
+    return f(n - 1, m * n);
+}
+```
+4
+```
+```

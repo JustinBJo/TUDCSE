@@ -29,7 +29,7 @@
   - Linear relationship between the logarithms of two variables
   - Real-world data often follows power laws
   - example diagram:
-  - ![img.png](img.png)
+  - ![img.png](images/img.png)
   - They have long tails that are close to zero but never actually reach zero.
 
 To use such data we often need to lessen the effect of very large values. How can we do this?

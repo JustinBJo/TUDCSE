@@ -221,3 +221,142 @@ Types of recursive functions:
 
 
 # Week 3
+## 1
+1. Each Node
+2. References
+3. No
+   - Two types of iterator: lazy and snapshot
+     - lazy contains reference (O(1))
+     - snapshot contains copies (O(n))
+
+## 2
+1. No
+   - There is no complete implementation
+2. No
+   - It is an abstract class that is extended
+3. True
+4. True
+5. True
+
+## 3
+1. Pq using a heap
+2. getMin(e)
+
+## 4
+1. 42
+2. 22, 87, 11, 90, 88
+3. 88, 90, 87, 42
+4. everything
+5. 90
+6. 87, 90, 88, 89, 92
+7. 2
+
+## 5
+1. 42, 22, 11, 1, 34, 55, 50, 49, 53, 66
+2. 1, 11, 22, 34, 42, 49, 50, 53, 55, 66
+3. 1, 11, 34, 22, 49, 53, 50, 66, 55, 42
+4. 42, 22, 55, 11, 34, 50, 66, 1, 49, 53
+5. Neither
+
+## 6
+1. .
+   - keys must be comparable
+   - binary tree
+   - maximum key for subtree
+   - tree must be complete
+2. .
+   - all levels from 0 to h-1 are full
+   - all nodes be in the left-most positions
+3. n
+4. 11,10,10,9,4,8
+
+## 7
+1. False
+2. False
+3. False
+4. True
+
+## 8
+1. T(n) = 2 * (c1 + T(logn)) + c0 = 2T(logn) + c2
+   - c0 represents the constant-time operations in line 2, 3, 5
+   - c1 represents the constant-time operations in line 5 (getLeft() and getRight())
+   - n represents the number of nodes in tree
+   - T(logn) represents the calls in line 5
+   - c2 represents 2c1 + c0
+2. O(logn)
+   - T(n) is 2T(logn) + c2
+   - we can ignore the constant c2 because as the value of n gets larger and larger, the constant does not affect the growth rate much.
+   - we can also ignore the coefficient 2 because the growth rate of the function is logarithmic with or without the coefficient.
+3. The maximum depth of the tree
+
+## R
+If f(n) is Ω(g(n)), there exist constants c > 0 and a n0 <= n that satisfies c * g(n) <= f(n).
+
+Take c = 2 and n0 = 1.
+
+f(1) = 2 + 20 + 4 = 26.<br>
+g(1) = 10 + 6 = 16.
+
+cg(1) = 32, cg(1) is larger than f(1).<bR>
+For c = 2 and n0 = 1, the condition holds.
+
+Therefore, f(n) is Ω(g(n)).
+
+
+# Week 4
+## 1
+### Heap Sort
+1. O(nlogn)
+2. O(nlogn)
+3. Key-based
+4. inplace
+
+### Insertion Sort
+1. O(n^2)
+2. O(n^2)
+3. Comparison-based
+4. Yes
+
+### Merge Sort
+1. O(nlogn)
+2. O(nlogn)
+3. comparison-based
+4. .
+
+### Quick Sort
+1. O(nlogn)
+2. O(n^2)
+3. Comparison-based
+4. .
+
+## 2
+1. Quick
+2. Selection
+
+## 3
+1. 1,2,6,7,8,4,5,3
+2. [12], [9,10], [5], [1,6]
+3. 7 3 4 1 9 12
+
+## 4
+T(n) = T(n-1) + c1n + c2
+
+## 5
+1. .
+   - n is the integer n
+   - T(n-1) corresponds to the recursive call in line 13.
+   - T(n) = T(n-1) + an + b(n+1) + c
+   - a represents the constant time operations at line 6[3], 7-10
+   - b represents the constant time operations at line 6[2]
+   - c represents the constant time operations at line 2, 5, 6[1]
+   - c1 corresponds to a+b
+   - c2 corresponds to b+c
+   - c3 represents the constant time operations at line 2-3
+2. .
+   1. T(n) = c1n^2 + c2n + c3
+   2. .
+   3. T(n) = O(n^2)
+
+## 6
+1. insertion - quick - merge
+2. same comparison, fewer swaps

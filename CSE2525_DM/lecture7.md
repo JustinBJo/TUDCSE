@@ -113,7 +113,16 @@ Sketches
 2. To add an element, we run the element through all the hash functions and set the corresponding bits to 1
 3. To test whether an element is seen, compute the hashes and sum up the returned bits. Check if sum is k
 
+![img_6.png](img_6.png)
+
 ![img_53.png](images/img_53.png)
 
 ### Count-min sketch
+![img_7.png](img_7.png)
+
+![img_8.png](img_8.png)
+
+![img_9.png](img_9.png)
+
+![img_10.png](img_10.png)
 

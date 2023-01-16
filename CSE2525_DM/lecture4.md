@@ -16,16 +16,16 @@ This is actually not a distance measure.
 
 KL(P||Q) != KL(Q||P) (KL is not symmetric)
 
-![img_2.png](img_2.png)
+![img_2.png](images/iimg_2.png)
 
-![img_3.png](img_3.png)
+![img_3.png](images/iimg_3.png)
 
 <BR>
 <BR>
 
 #### Jean-Shannon divergence
 A symmetrised, smoothed version of KL divergence<br>
-![img_4.png](img_4.png)
+![img_4.png](images/iimg_4.png)
 
 Unlike KL-divergence, it is a metric. Moreover, it will not be infinite when P or Q becomes 0.
 

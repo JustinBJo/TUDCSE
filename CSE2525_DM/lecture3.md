@@ -14,7 +14,7 @@ We have many functions that represents distances:
 
 We call these distance metrics.<BR>
 A distance metric d(.,.) should satisfy the metric properties:<br>
-![img.png](img.png)
+![img.png](images/iimg.png)
 
 ### 1) Distances between Sets
 
@@ -59,7 +59,7 @@ Euclidean properties:
 ### L_p-norm
 Generalised Minkowski distance
 
-![img_1.png](img_1.png)
+![img_1.png](images/iimg_1.png)
 - L_0 = Non-zeros
 - L_1 = Manhattan distance
 - L_2 = Euclidean distance

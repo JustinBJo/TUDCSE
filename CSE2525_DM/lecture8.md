@@ -3,7 +3,7 @@
 ---
 
 ## Contents for today - Finding similar items
-![img_11.png](img_11.png)
+![img_11.png](images/iimg_11.png)
 
 The core of LSH is finding similar items, or rather computing distances between data.
 - We have a text document
@@ -26,7 +26,7 @@ This gives two things:
 
 ## Four types of rows
 - Given columns C1 and C2, rows may be classified as:
-- ![img_12.png](img_12.png)
+- ![img_12.png](images/iimg_12.png)
 - Where 1 can be for example containing word A, and 0 not containing it.
 - We can produce Jaccard Sim (Sim(C1,C2) = a / (a+b+c))
 
@@ -36,7 +36,7 @@ This gives two things:
   - returns the row number of the first row in which column C has 1.
 - We hash multiple times to create a signature
 - Example:
-- ![img_13.png](img_13.png)
+- ![img_13.png](images/iimg_13.png)
   - Rows are permuted randomly, so look for the first row that has 1 and hash it.
   - Note that columns are the different documents, and 1's and 0's are whether the document contains a word.
 
@@ -54,7 +54,7 @@ Hashing using Signatures
   - Sig(C) is small enough that we can fit a signature in main memory for each column
   - Sim(C1,C2) is the same as "similarity" of Sig(C1) and Sig(C2).
 - Example
-- ![img_14.png](img_14.png)
+- ![img_14.png](images/iimg_14.png)
 - Col/Col = count identical rows where 1s appear
 - Sig/Sig = count identical signature matrix indices
 
@@ -64,15 +64,15 @@ Implementation
   - For each column c and each hash function hi, keep a slot M(i,c)
   - So that M(i,c) will become the smallest value of hi(r) for which column c has 1 in row r.
 
-![img_15.png](img_15.png)
+![img_15.png](images/iimg_15.png)
 
-![img_16.png](img_16.png)
+![img_16.png](images/iimg_16.png)
 - Compute when column value of row n is 1
 - Update if the computed value is smaller
 - So that we keep the one that gives the smallest row number.
 
 Creating Hash functions
-![img_17.png](img_17.png)
+![img_17.png](images/iimg_17.png)
 
 
 ## Nearest neighbors - Locality-sensitive hashing
@@ -86,11 +86,11 @@ So let's speed them up.
 
 ### Locality-sensitive hashing
 General hashing functions maps objects uniformly.<br>
-![img_18.png](img_18.png)<br>
+![img_18.png](images/iimg_18.png)<br>
 This means that similar objects can be mapped to completely different bins.
 
 LSH uses hashing functions that take "location" of object in consideration.<br>
-![img_19.png](img_19.png)<br>
+![img_19.png](images/iimg_19.png)<br>
 So that the similar objects end up in the same bin.
 
 So the biggest difference between normal hashing and LSH is:
@@ -99,14 +99,14 @@ So the biggest difference between normal hashing and LSH is:
 
 Hashing points in space
 - Example of a LSH hashing function for points in a space is a projection.
-- ![img_20.png](img_20.png)
+- ![img_20.png](images/iimg_20.png)
 - The retrieval of nearest neighbours of a query point q using LSH works as follows:
   - hash all data points using LSH
   - compute LSH of query point
   - Compute distances to objects in the same bin (candidate points)
 
 Unlucky LSH<br>
-![img_21.png](img_21.png)
+![img_21.png](images/iimg_21.png)
 - Resolving collisions
   - points are candidates if they occur in all query bins
   - **AND-construction**
@@ -114,8 +114,8 @@ Unlucky LSH<br>
   - points are candidate neighbours if candidate in any of the hash tables
   - **OR-constructions**
 - Effects of AND and OR constructions
-  - ![img_22.png](img_22.png)
-  - ![img_23.png](img_23.png)
+  - ![img_22.png](images/iimg_22.png)
+  - ![img_23.png](images/iimg_23.png)
 
 Now let's combine LSH with minhashes!
 
@@ -125,9 +125,9 @@ How to use them together:
 - Hash each sub-signature(the rows) of length r into a hash table per band
 - Two sets with at least one identical sub-signature will hash in the same bucket (at least once)
 - These are the candidate column pairs for similarity
-- ![img_24.png](img_24.png)
-- ![img_25.png](img_25.png)
-- ![img_26.png](img_26.png)
+- ![img_24.png](images/iimg_24.png)
+- ![img_25.png](images/iimg_25.png)
+- ![img_26.png](images/iimg_26.png)
 
 The computation
 - Say we have B bands with R rows per band.
@@ -138,7 +138,7 @@ The computation
   - Probability that no band is identical = (1-s^r)^b
   - Probability that at least 1 band is identical = 1 - (1-s^r)^b
     - this is what we need because these are what we take as candidates
-- ![img_27.png](img_27.png)
+- ![img_27.png](images/iimg_27.png)
   - find the fixed point
     - This looks ideal to find columns that are 50% similar
     - Not so much for 80% similar, because we would waste time trying to compute distances for 50%~80% similar pairs.

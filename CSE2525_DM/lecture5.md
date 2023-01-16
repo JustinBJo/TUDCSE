@@ -53,7 +53,7 @@ Sliding windows
     - ABCD is repeated, so just have windows starting at A and we have repeating windows with ABCD
 
 Compute the residual<br>
-![img_5.png](img_5.png)
+![img_5.png](images/iimg_5.png)
 
 Pitfall: cross validation
 - Cross-validation fails for time series

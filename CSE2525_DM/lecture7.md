@@ -74,6 +74,7 @@ I have a memory of size m. The items have number i.
 
 Why?
 - Can get the uniform samples of the data
+- ![img.png](images/iiimg.png)
 - ![img_48.png](images/img_48.png)
 
 #### Reservoir Sampling via Order Sampling
@@ -103,7 +104,7 @@ Why?
 ## Hashing
 Sketches
 - Not every problem can be solved with sampling (example: counting how many distinct items in the stream)
-- Other techniques take advantage that the algorithm can "see" all the data even if it can "remember" it all
+- Other techniques take advantage that the algorithm can "see" all the data even if it can't "remember" it all
 - Sketch is one of them, and it is essentially a linear transformation of the input.
 - Sketch uses finite memory
 

@@ -20,6 +20,7 @@ i.e., if L1 and L2 are regular languages, then so is L1 U L2 and L1 • L2
 
 
 # 1. DFA
+Deterministic finite state machine
 
 ## Finite State Machine
 a.k.a Finite Automaton, FSM
@@ -80,14 +81,6 @@ Let's have a look at the example from before.<br>
 
 Notice that the above state machine only accepts strings with odd number of both 0's and 1's.
 
-![img_2.png](img_2.png)<br>
-- M1: ({q1, q2, q3}, {a, b}, δ(skipped), q1, {q2})
-- M2: ({q1, q2, q3, q4}, {a, b}, δ(skipped), q1, {q1, q4})
-
-![img_3.png](img_3.png)<br>
-![img_4.png](img_4.png)<br>
-
-
 ## Designing DFAs
 ### Notations/Terminology
   - The language that M accepts is A
@@ -124,3 +117,52 @@ Notice that the above state machine only accepts strings with odd number of both
 ## Closure properties
 look at closure properties for 0. Languages
 
+
+# 2. NFA
+Nondeterministic finite state machine
+## Non-determinism
+- Determinism
+  - Given the current state, we know what the next state will be.
+    - Only one unique next state
+    - No choices
+    - No randomness (Perfect repeatability)
+    - No errors or malfunctions
+
+- Nondeterminism
+  - Given the current state, there may be multiple next states.
+    - The next state is chosen at random, or
+    - All next states are chosen in parallel
+
+### Non-deterministic finite state machine
+We are now allowing
+- Multiple edges with same labels
+- Epsilon edges (optional)
+
+**If there is any way to run the machine that ends with ACCEPT, then the NFA accepts.**
+
+Then which one do we try?
+- try them all, or
+- make the "right" choice at each point (based on other information) (both are equivalent)
+
+### Why are NFAs useful?
+- Every NFA can be converted into an equivalent DFA (shown later)
+  - constructing NFAs is sometimes easier than directly constructing DFAs
+- Nondeterminism in finite automata is a good introduction of nondeterminism for other more powerful computational models.
+
+## Formal Definition of NFA
+- Powerset: the set of all subsets
+  - P({a,b,c}) = {Ø, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}}
+  - size of the powerset = 2^(number of elements in the set)
+
+> M = (Q, Σ, δ, q0, F)
+
+- Q = states
+- Σ = alphabets
+- q0 = start state
+- F = accept states
+- δ = Transition function (δ: Q x Σε -> P(Q)) (Σε = Σ U {ε})
+
+Note that the definition is very similar to that of DFA but with a slight difference in δ.<br>
+NFAs consider subsets of states rather than just one state (like DFA does).
+
+If N = number of states in NFA, the worst case number of states in the equivalent DFA is 2^N.

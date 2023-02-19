@@ -31,12 +31,12 @@ a.k.a Finite Automaton, FSM
   - Finite and usually quite small
 
 Example of FSM:<BR>
-![img.png](img.png)
+![img.png](images/img.png)
 - Nodes = States (with starting and accepting, or final, states)
 - Edges = Transitions (with labels)
 
 Example questions about FSM:<br>
-![img_1.png](img_1.png)
+![img_1.png](images/img_1.png)
 1. q1 for both M1 and M2
 2. {q2}, {q1,q4}
 3. M1: {q1, q2, q3, q1, q1}, M2: {q1, q1, q1, q2, q4}
@@ -67,7 +67,7 @@ Example questions about FSM:<br>
 - F = The set of accepting states (F ⊆ Q)
 
 Let's have a look at the example from before.<br>
-![img.png](img.png)<br>
+![img.png](images/img.png)<br>
 - Q = {a, b, c, d}
 - Σ = {0, 1}
 - q0 = a
@@ -166,3 +166,193 @@ Note that the definition is very similar to that of DFA but with a slight differ
 NFAs consider subsets of states rather than just one state (like DFA does).
 
 If N = number of states in NFA, the worst case number of states in the equivalent DFA is 2^N.
+
+## Equivalence of Determinism and Nondeterminism for FSM
+> Every NFA has an equivalent DFA
+
+Proof by construction
+- Let NFA M = (Q, Σ, δ, q0, F)
+- Construct DFA M' = (Q', Σ, δ', q'0, F')
+    - Q' = P(Q)
+        - Assume M has K states. Then M' will have 2^k states.
+    - q'0 = E({q0}) (see epsilon-closure below)
+    - F' = {R ε Q' | R contains an accept state from M}
+        - For example, if there are three states A, B, and C, and B and C are accepting states, then
+        - the accepting states for M' are B, C, AB, AC, BC, and ABC
+    - δ'(R a) = {q | q ε Q and q ε E(δ(r, a))} for some r ε R
+        - a = input alphabet
+        - R = a state in M'
+        - Epsilon-closure E(R)
+            - E(R) = {q ε Q | q can be reached from a state in R by following zero or more ε-edges
+
+## Closure of Regular Operations revisited
+"Closure" of a language
+- Take an element from a language and perform an operation.
+- If the result is still in that language, then the language is closed under that operation.
+
+### Union
+> The class of regular languages is "closed" under union.
+
+Proof:
+- Assume A1 are A2 are regular languages
+- Assume NFAs N1 recognises A1, and N2 recognises A2
+- Combine N1 and N2 to build NFA N to recognise A1 U A2
+- ![img_5.png](images/img_5.png)
+- Formally:
+  - Let N1 = (Q1, Σ, δ1, q1, F1)
+  - Let N2 = (Q2, Σ, δ2, q2, F2)
+  - Construct N = (Q, Σ, δ, q0, F)
+    - Q = Q1 U Q2 U {q0}
+      - q0 is a new starting state
+    - F = F1 U F2
+    - δ(q,a) = 
+      - δ1(q,a) if q ε Q1
+      - δ2(q,a) if q ε Q2
+      - {q1, q2} if q = q0 and a = ε
+      - {} if q = q0 and a != ε
+
+### Concatenation
+> The class of regular languages is "closed" under concatenation.
+
+Recall:
+w ε A1•A2 if w = xy and x ε A1 and y ε A2
+
+Proof:
+- Same approach
+- Assume A1 are A2 are regular languages
+- Assume NFAs N1 recognises A1, and N2 recognises A2
+- Combine N1 and N2 to build NFA N to recognise A1 • A2
+- ![img_6.png](images/img_6.png)
+- Formally:
+  - Let N1 = (Q1, Σ, δ1, q1, F1)
+  - Let N2 = (Q2, Σ, δ2, q2, F2)
+  - Construct N = (Q, Σ, δ, q0, F)
+    - Q = Q1 U Q2
+    - q0 = q1
+    - F = F2
+    - δ(q,a) =
+      - δ1(q,a) if q ε Q1
+      - δ2(q,a) if q ε Q2
+      - δ1(q,a) U {q2} if q ε F1 and a = ε
+      - δ1(q,a) if q ε F1 and a != ε
+
+### Star
+> The class of regular languages is "closed" under concatenation.
+
+Proof:
+- Same idea
+- ![img_7.png](images/img_7.png)
+- Formally:
+  - Let N1 = (Q1, Σ, δ1, q1, F1)
+  - Construct N = (Q, Σ, δ, q0, F)
+    - Q = Q1 U {q0}
+    - q0 is a new starting state
+    - F = F1 U {q0}
+    - δ(q,a) =
+      - δ1(q,a) if q ε Q1
+      - δ1(q,a) U {q1} if q ε F1 and a = ε
+      - δ1(q,a) if q ε F1 and a != ε
+      - q1 if q = q0 and a = ε
+      - {} if q = q0 and a != ε
+
+
+# 3. Regular Expressions
+> Recursive definition of Regular Expression follows:
+> - a is a regex (where a ε Σ)
+> - R1 U R2 is a regex (where R1 and R2 are regex's) (Equivalent: R1|R2)
+> - R1 • R2 is a regex (Equivalent: R1R2)
+> - R1* is a regex
+> - ε is a regex
+> - Ø is a regex
+> - (R1) is a regex
+
+Some rules:
+- Star binds tightest
+  - ab* = a(b*) != (ab)*
+- Concatenation binds tighter than union
+  - abUc = (ab) U c != a(b U C)
+- Brackets and Unions
+  - ab|c = (ab)|c != a(b|c)
+- Star(closure)
+  - a* = {a} = {a}*
+- One or more
+  - a+ = aa* = {a}+
+- Optional
+  - [a] = a|ε = (a U ε) = a?
+
+## Formal definition
+Regular expressions describe regular languages:
+- L(a) = {a}
+- L(R1|R2) = L(R1) U L(R2)
+- L(R1R2) = L(R1) • L(R2)
+- L(R1*) = L(R1)*
+- L(ε) = {ε}
+- L(Ø) = {}
+- L((R1)) = L(R1)
+
+## GNFA
+Generalised nondeterministic finite automata
+
+GNFA is like an NFA, except:
+- edges are labeled with regex's
+- only one accept state
+- there is exactly one edge from every state to every other state (including an edge to itself)
+  - no edges going to the start state
+  - no edges out of the accept state
+
+We use GNFA to prove the following:
+> Regular languages = Regular Expression <br>
+> A language is regular iff some regular expression describes it.
+
+We are going to prove this in two ways, using lemma 1 and 2.
+
+### Lemma 1
+> If a language is described by a regular expression, then it is regular
+
+All regular expressions have smaller regular expressions that builds it
+- Proof 1: use the closure of union, concatenation, and star
+- Proof 2: from a regular expression, build an NFA to recognise it
+
+If we have an NFA that represents the regex, then we know that the language described by the regex is regular.
+
+### Lemma 2
+> If a language is regular, then it can be described by a regular expression
+
+Proof approach:
+1. Start with a DFA that recognises it
+2. Build a GNFA (generalised NFA)
+3. Reduce it
+4. This yields a regular expression
+
+
+1. Start with building DFA
+2. Convert from DFA to GNFA
+   1. Add a start state
+      - Connect it to the old starting state with epsilon edge
+   2. Add a new accept state
+      - Connect all the old accepting states to this state with epsilon edges
+   3. Eliminate multiple edges with union
+      - a,b,c -> a|b|c
+   4. Add missing edges (with Ø) for full connectivity
+3. Reduce it
+   1. Choose a state
+   2. Remove it
+      - Remove the state
+      - Remove all edges from it
+      - Remove all edges to it
+   3. Modify the machine so it still accepts the same language
+      - Do the following for all the remaining edges
+      - Consider:
+        - qi and qj, which are just some arbitrary states
+        - qr, which is the state that is being removed
+        - δ(qi, R1) = qr
+        - δ(qr, R2) = qr
+        - δ(qr, R3) = qj
+        - δ(qi, R4) = qj
+      - Now the edge from qi to qj has label: R4|R1R2\*R3; i.e. δ(qi, R4|R1R2\*R3) = qj
+      - Some simplifications:
+        - εR = Rε = R
+        - ØR = RØ = Ø
+        - Ø|R = R
+4. Repeat until there are only 2 states left
+5. We have now converted our DFA into an equivalent regex

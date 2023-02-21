@@ -183,7 +183,8 @@ Proof by construction
         - a = input alphabet
         - R = a state in M'
         - Epsilon-closure E(R)
-            - E(R) = {q ε Q | q can be reached from a state in R by following zero or more ε-edges
+            - E(R) = {q ε Q | q can be reached from a state in R by following zero or more ε-edges}
+              - E(R) always includes R itself.
 
 ## Closure of Regular Operations revisited
 "Closure" of a language
@@ -356,3 +357,92 @@ Proof approach:
         - Ø|R = R
 4. Repeat until there are only 2 states left
 5. We have now converted our DFA into an equivalent regex
+
+# 4. Irregularity
+## Pumping Lemma
+Proving that a language is not regular
+
+### 1. Cycles in FSM
+Consider an FSM that generates a long string.<br>
+This FSM has 5 states.<br>
+We can create long strings by taking cycles.<br>
+The maximum length of the string that can be created without taking any cycles is 4. 
+This also means that any string that has length longer than 4 has to take a cycle.
+
+Now comes the key idea:
+- If you can go around a cycle once, then you can go around it multiple times.
+- **A string created by taking a cycle must also be in that language.**
+- You can also skip the cycle, and that string must also be in that language.
+
+Let's consider an FSM which contains a cycle. We define:
+- X as the set of symbols encountered before the cycle
+- Y as the set of cycling symbols
+- Z as the set of symbols after.
+- String s = XYZ.
+
+We can say that all strings of form s = X Y^i Z are in a language A, for i >= 0.
+
+### 2. Pumping Length
+If A is a regular language, and it contains a string s which is sufficiently long,<br>
+then s can be divided up to three parts X, Y, and Z, such that<br>
+X Y^i Z is in the language for i >= 0, and that |y| > 0, and that |xy| <= P (see below).
+
+But how do we define "sufficiently long"?<br>
+Specify the PUMPING LENGTH P: |s| >= P. <br>
+P depends on the language; it is the length that is long enough for the FSM to have a cycle.<br>
+
+Some notes on the pumping length:
+- Every regular language has P.
+- P depends on the language, not of any specific FSM.
+
+### 3. Pumping Lemma
+> If A is a regular language then A has a pumping length P<br>
+> such that any string s may be divided into 3 pieces s = XYZ<br>
+> such that all these conditions hold:
+> - XY^iZ ε A for every i >= 0
+> - |y| > 0
+> - |xy| <= P
+
+## Proving Irregularity
+Use the pumping lemma to prove a language A is not regular
+
+Proof by contradiction:
+1. Assume A is regular
+2. A has a pumping length P
+3. Find a string s in A such that |s| >= P
+4. Divide s into XYZ (consider all cases of division)
+5. Show that XY^iZ is not in A for some i
+6. Show that none of these can satisfy all the pumping conditions
+7. s cannot be pumped => contradiction, QED.
+
+### Example 1:
+Let B = {0^n 1^n | n>=0}. Prove B is not regular.
+
+1. Assume B is regular
+2. B has a pumping length P
+3. Let s = 0^P 1^P
+4. Divide s into XYZ and consider all the ways:
+   1. Y in the zeros part (0^5 1^5 = 00[00]011111)
+      - So XY^iZ must be in B
+      - XY^2Z = 00\[00\][00]011111)
+      - This will not be in B, because number of zeros != number of ones
+   2. Y in the ones part (0^5 1^5 = 000001[11]11)
+      - Likewise, this will not be in B
+      - Also, this case does not satisfy |XY| <= P.
+   3. y has zeros and ones (0^5 1^5 = 0000[01]1111)
+      - XY^2Z = 0000\[01\][01]1111
+      - This will not be in B, because it is not in the form O^n 1^n.
+      - Also, this case does not satisfy |XY| <= P.
+5. s is not pumpable for all cases, and this creates contradiction with the fact that B is regular. Therefore B is irregular (QED)
+
+
+### Example 2:
+Let F = {ww | w ε {0,1}*}. Prove F is not regular
+
+1. Assume F is regular
+2. F has pumping length P
+3. Let s = 0^P 1 O^P 1
+4. Divide s
+   - Because |y| > 0 and |xy| <= P, y must be in the first O^P parts
+   - However, this is not in F because the second w does not equal the first w.
+5. s is not pumpable(for all cases) and this creates contradiction......

@@ -8,7 +8,9 @@ Reduction: using another algorithm as a part of another algorithm to prove a pro
 
 
 ## DR - The Universal Turing Machine
-> The Universal Turing Machine is a recogniser (but not a decider) for the acceptance problem.
+> A Universal Turing Machine (U_TM) is a TM that can simulate any other TM and therefore can decide any language that a TM can decide.
+> <br>In other words, U_TM is a TM that can read the description of any other TM and simulate its behavior.
+> <br><br>The Universal Turing Machine is a recogniser (but not a decider) for the acceptance problem.
 
 Recall the acceptance problem:<br>
 The language A = {<M,w> | M is a TM and M accepts w} is Turing recognisable.

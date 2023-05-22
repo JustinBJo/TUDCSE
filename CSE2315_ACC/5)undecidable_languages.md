@@ -149,7 +149,7 @@ Want to decide L? (Is x in L?)
 <br>
 Now put these together to get...
 
-> A language L is Turing recognisable iff it is Turing recognisable and co-Turing recognisable
+> A language L is Decidable iff it is Turing recognisable and co-Turing recognisable
 
 A language is "co-Turing recognisable" if its complement is Turing recognisable
 

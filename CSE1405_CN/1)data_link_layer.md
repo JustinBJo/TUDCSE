@@ -18,7 +18,7 @@ At the end of this topic, we should be able to give answers to following questio
 Topics:
 - Terminology
 - Acknowledgements (to detect data loss)
-- Sliding window protocols (to detect/handle data loss better)
+  - Sliding window protocols (to detect/handle data loss better)
 - Framing (division/reassembling of data into frames)
 
 # Terminologies
@@ -28,23 +28,23 @@ Physical layer sends bits in groups to add information (additional bits) about r
 These groups are called frames.
 
 Frame looks as follows:<br>
-![img.png](images/img(1).png)
+![img.png](images/1_images/img(1).png)
 
 The header and trailer have fixed length and structure, where the data can have variable length (with maximum and minimum).
 
 As an example, the frame in Ethernet looks like below.<br>
-![img_1.png](images/img_1.png)
+![img_1.png](images/1_images/img_1.png)
 
 ### State
 Information about the status of communication<br>
 Changes over time
 
-![img_2.png](images/img_2.png)
+![img_2.png](images/1_images/img_2.png)
 
 ### Connection
 Communication between two parties that is stateful (i.e., parties maintain state)
 
-![img_3.png](images/img_3.png)
+![img_3.png](images/1_images/img_3.png)
 
 Requires:
 - Agreement on initial state
@@ -116,10 +116,10 @@ Each frame has to be numbered in order to confirm which frame has been acked.
 This is called the sequence number.
 
 In sliding window protocol, frames have states:
-![img_4.png](images/img_4.png)
+![img_4.png](images/1_images/img_4.png)
 
 The transmitted but not acknowledged part - the window - "slides" as each frame is acked.
-![img_5.png](images/img_5.png)
+![img_5.png](images/1_images/img_5.png)
 
 The size of k depends on the buffer of A (A should be able to buffer k frames). <br>
 For maximum efficiency, k should be large enough so that the time the bandwidth is not used is minimised.
@@ -200,22 +200,22 @@ So we have to...
 ## Byte Stuffing
 Add special "flag byte" to mark beginning and end of frame
 
-![img_6.png](images/img_6.png)
+![img_6.png](images/1_images/img_6.png)
 
 The problem is that we might want to send byte F as it is, not as the flag byte.<br>
 To do this, we use escape byte.
 
-![img_7.png](images/img_7.png)
+![img_7.png](images/1_images/img_7.png)
 
 This can be inefficient because escaping always adds full byte.
 
 ## Bit Stuffing
 Only use one bit for escaping
-![img_8.png](images/img_8.png)
+![img_8.png](images/1_images/img_8.png)
 
 Example:
 
-![img_9.png](images/img_9.png)
+![img_9.png](images/1_images/img_9.png)
 
 
 # 4. Data Link Layer - Summary

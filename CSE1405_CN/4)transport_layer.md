@@ -241,6 +241,10 @@ If the forbidden region is reached, perform resynchronisation which is re-establ
 
 ![img_15.png](images/4_images/img_15.png)
 
+![img.png](images/4_images/img_27.png)
+
+![img_1.png](images/4_images/img_28.png)
+
 However, clock-based seq numbers are predictable, and it is easy for an attacker to guess.<br>
 Hence, modern TCP versions randomise initial seq numbers.
 

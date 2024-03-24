@@ -38,7 +38,7 @@ Access control is needed because:
 ### Trusted Computing Base (TCB)
 > All components the OS relies upon to provide security guarantees
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 The TCB must be correct and untampered
 
@@ -113,13 +113,13 @@ Cons:
 
 The rights to perform actions of subjects to objects can be stored in different ways:
 - Access Control Matrix
-    - ![alt text](image-6.png)
+    - ![alt text](images/image-6.png)
     - Incredibly large/sparse: impractical
 - Access Control Lists (ACLs)
-    - ![alt text](image-7.png)
+    - ![alt text](images/image-7.png)
     - POSIX permissions and Windows/Linux/macOS ACLs are all forms of access control lists
 - Capability Lists
-    - ![alt text](image-8.png)
+    - ![alt text](images/image-8.png)
 
 #### Mandatory Access Control (MAC)
 OS sets the access control policy
@@ -132,7 +132,7 @@ Traditionally used in Multilevel Security:
 
 There are different models to manage the previleges:
 - Bell-LaPadula Model
-    - ![alt text](image-9.png)
+    - ![alt text](images/image-9.png)
     - Focuses on confidentiality
     - Information cannot flow to a lower security level
     - Practical use:
@@ -143,7 +143,7 @@ There are different models to manage the previleges:
         - Hard to handl changes in security levels(tranquility)
 
 - Biba
-    - ![alt text](image-10.png)
+    - ![alt text](images/image-10.png)
     - Focuses on integrity
     - Subjects at lower integrity level cannot modify objects at higher level
     - Practical use:

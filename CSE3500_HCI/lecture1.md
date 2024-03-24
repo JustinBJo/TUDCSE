@@ -31,7 +31,7 @@ Guidelines in HCI and usability
 - Contexts
 - Technologies
 
-![img.png](img.png)
+![img.png](images/img.png)
 
 # 4. HCI Tasks and Prototyping
 1. What needs to be done?

@@ -105,7 +105,7 @@ How surprising is an event?
 ### Information gain
 For some experiment E and output ei,
 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 - I(E = ei): information gained by having E output ei
 - p(ei): probability of ei
 
@@ -118,11 +118,11 @@ Formal measure of uncertainty in the outcome of a process
 
 Average value of information we obtain by learning the result of Experiment E, with outcomes e0, e1, ..., e_(n-1)
 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
 
 Example calculation:
 
-![alt text](image-14.png)
+![alt text](images/image-14.png)
 
 The answer is:
 - p(a) = 1/2

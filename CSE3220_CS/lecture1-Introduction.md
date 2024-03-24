@@ -84,7 +84,7 @@ Principles to defend against computer security threat
 ### Threat model
 - Serves as a strategic framework that identifies potential attacks and adversaries a system aims to safeguard against
 - Threat model help in understanding and preparing for various security risks
-- ![img.png](img.png)
+- ![img.png](images/img.png)
 
 
 ### Security by design principles
@@ -115,7 +115,7 @@ Mitre Att&ck framework
 
 Unified Kill Chain
 - Attackers have various phases in their attacks, and these phases have phases too
-- ![img_1.png](img_1.png)
+- ![img_1.png](images/img_1.png)
 - If we can detect them accordingly in the right phase, we can throw them out
 
 Security by Design

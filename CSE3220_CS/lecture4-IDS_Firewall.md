@@ -31,7 +31,7 @@ L.O.
 - These rules allow/deny connections in the network
 - A firewall compares network traffic to a set of rules
 - To match the rules to the traffic, it must process several packet layers to obtain the needed data
-- ![img_2.png](img_2.png)
+- ![img_2.png](images/img_2.png)
 
 ### Types of firewalls
 - Firewalls can be implemented in software or hardware:
@@ -63,7 +63,7 @@ L.O.
 #### Stateful inspection firewall
 - Maintains state between packets, allowing for more complex rules
 - Similar to packet filtering but remembers past events, allowing for rules that allow traffic from outsie if the connection was started from inside the network
-- ![img_3.png](img_3.png)
+- ![img_3.png](images/img_3.png)
 
 <br>
 
@@ -88,7 +88,7 @@ L.O.
 - Relays application layer data between user and application
 - Does not parse the application layer contents, but determines which connections are allowed
 - An example of such a firewall is a SOCKS proxy
-  - ![img_4.png](img_4.png)
+  - ![img_4.png](images/img_4.png)
 
 
 ## 2. Internet Scanning
@@ -103,7 +103,7 @@ Internet-wide scanning detection
 ### De-Militarised Zone (DMZ)
 - A DMZ is common in network architectures to allow some services to be reached from the Internet
 - The Internal network is separated from the DMZ using a second firewall, which can be used for more stringent filtering
-![alt text](image.png)
+![alt text](images/image.png)
 
 ### Virtual Private Network (VPN)
 - Accessing a (corporate) network from the outside is dangerous and therefore (usually) firewalled
@@ -173,7 +173,7 @@ Distributed HIDS
 - The location of the sensor matters a lot
 
 Sending traffic to a NIDS
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 ### Honeypots
 A honeypot is a decoy system that is designed to lure potential attackers away from critical systems

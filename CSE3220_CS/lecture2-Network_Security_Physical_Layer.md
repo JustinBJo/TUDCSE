@@ -24,7 +24,7 @@ Network
 The OSI model
 - The OSI (Open Systems Interconnection) Model is a conceptual framework that standardises the functions of a telecommunication or computing system in to seven abstract layers.
 - Simplified OSI model:
-  - ![img_1.png](../CSE3500_HCI/img_1.png)
+  - ![img_1.png](../CSE3500_HCI/images/img_1.png)
 
 
 ## Physical Layer

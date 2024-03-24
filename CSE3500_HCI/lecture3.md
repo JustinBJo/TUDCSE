@@ -77,7 +77,7 @@ Suitability
 - Size and space for approach and use
 
 ### Inclusivity analysis
-![alt text](image.png)
+![alt text](images/image.png)
 
 ## 4. Acceptability
 > Does it fit to people's lives?
@@ -89,4 +89,4 @@ Suitability
 - Economic
 
 Technoology Acceptance Model
-![alt text](image-1.png)
+![alt text](images/image-1.png)

@@ -6,7 +6,7 @@ L.O.
 
 # RDBMS and SQL
 ## Data Flow
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 
 ## Authentication
 ```

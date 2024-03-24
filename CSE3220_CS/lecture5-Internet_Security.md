@@ -29,9 +29,9 @@ L.O.
 - Gives S to HTTPS
 - Can encrypt, secure, and authenticate
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 - HTTP
     - No verification of identity
     - All data is sent in plain-text
@@ -79,6 +79,6 @@ Sender Policy Framework
 DomainKeys Identified Main (DKIM)
 - SPF validates whether the sender is legitimate, but it cannot check if the content is authentic
 - DKIM is designed to sign the email on a domain-level and distribute the key via DNS
-- ![alt text](image-4.png)
+- ![alt text](images/image-4.png)
 - If an email is modified in transit, we can find out
 

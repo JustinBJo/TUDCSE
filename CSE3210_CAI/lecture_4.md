@@ -50,7 +50,7 @@ Main characteristics:
 - The organisational structure within each coalition is flat
 
 ### Coalition Formation Games
-![alt text](image-15.png)
+![alt text](images/image-15.png)
 
 CFG and TU are the focus of this lecture
 
@@ -94,7 +94,7 @@ Explore the CS graph greedily
 
 Top-down approach starting from single-agent coalition structure in the CS graph
 
-![alt text](image-16.png)
+![alt text](images/image-16.png)
 
 1. At each level in the graph, find the **gain** by merging two coalitions
     - Gain(Ci, Cj) = v(Ci U Cj) - v(Ci) - v(Cj)
@@ -111,7 +111,7 @@ To find the optimal partition of a set of agents, it is sufficient to:
 - Try the possible ways to split the set into two sets, and
 - For every half, find the optimal partition of that half
 
-![alt text](image-17.png)
+![alt text](images/image-17.png)
 
 Evaluation:
 - Pros:
@@ -132,4 +132,4 @@ Evaluation:
     - Efficiency: O(n^n)
     - In the worst case, IP may have to search the entire space
 
-![alt text](image-18.png)
+![alt text](images/image-18.png)

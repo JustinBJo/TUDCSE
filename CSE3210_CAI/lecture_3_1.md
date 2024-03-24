@@ -56,8 +56,8 @@ A preference profile is denoted as R = (≥1, ..., ≥n)
 > Aggregation of several agents' preference rankings of two or more alternatives into a single, collective preference ranking (or choice) over these alternatives<br>
 > Can be seen as a Social Welfare Function or a Social Choice Function
 
-![alt text](image-5.png)
-![alt text](image-6.png)
+![alt text](images/image-5.png)
+![alt text](images/image-6.png)
 
 There are a variety of SWFs and SCFs. <br>However, they do not always work as they are expected to
 <br>This is why we sometimes rely on **axioms**
@@ -74,14 +74,14 @@ In this lecture, we will consider axioms for SWFs, but similar axioms can be app
 
 If alternative a wins with n1 and n2 for and n3 against, then a should also win with n2, n3 for and n1 against.
 
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 
 ### Neutral SWF
 > A SWF *F* is neutral if alternatives are treated symmetrically
 
 If we swap alternatives a and b in a ballot, the outcome should be the same
 
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 
 ### Positive Responsiveness
 - If the group decision is indifferent or favourable to a,
@@ -99,13 +99,13 @@ Majority rule:
     - U = {a, b}
     - N = {n1, n2, n3}
 
-![alt text](image-9.png)
-![alt text](image-10.png)
-![alt text](image-11.png)
+![alt text](images/image-9.png)
+![alt text](images/image-10.png)
+![alt text](images/image-11.png)
 
 For another example, consider a situation with more than two alternatives
 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
 
 The majority rule does not satisfy anonymity, neutrality, and positive responsiveness for |U| ≥ 3
 
@@ -116,7 +116,7 @@ An SWF satisfies the Pareto condition if, whenever all individuals rank a above 
 
 a >i b for all i ε N implies that a > b
 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 
 ### Independence of Irrelevant Alternative (IIA)
 An SWF satisfies IIA if the social preferences between any pair of alternatives only depends on the individual preference profiles restricted to these two alternatives:

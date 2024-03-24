@@ -47,7 +47,7 @@ Appropriate trust
 - The process of calibrating trust to match trustworthiness
 - If successful: leading to appropriate trust
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 Warranted/Unwarranted trust
 - Unwarranted trust/distrust
@@ -86,7 +86,7 @@ ABI model
 Can use questionaires on trust to evaluate trust in multiple dimensions
 
 Trustworthy AI
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 
 ## 5. Explanable AI
@@ -143,7 +143,7 @@ Four types of explanatory questions:
 > Fact = what happened <br>
 > Foil = the counterfactual case
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 ### Selecting Explanation
 - Causal chains

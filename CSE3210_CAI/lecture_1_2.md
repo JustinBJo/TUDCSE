@@ -31,11 +31,11 @@ but also involves normal supportive behaviour associated with teamwork or soft c
 > Designing for interdependence enables autonomy to reach its potential.
 
 - Supporting interdependence
-- ![img_1.png](img_1.png)
+- ![img_1.png](images/img_1.png)
 
 - Coactive design method
-- ![img_2.png](img_2.png)
+- ![img_2.png](images/img_2.png)
 
 ## Interdependence analysis (IA)
-![img_3.png](img_3.png)
+![img_3.png](images/img_3.png)
 

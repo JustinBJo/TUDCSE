@@ -70,7 +70,7 @@ Scoring rules have been criticised for failing to select the Condorcet winner fo
 - Condorcet winner is an alternative that beats every other alternatives in pairwise majority comparisons
 - Some preference profiles do not admit a Condorcet winner (Condorcet paradox from last lecture)
 
-![alt text](image-14.png)
+![alt text](images/image-14.png)
 
 Condorcet extensions are rules that try to satisfy Condorcet's criterion
 - These rules will elect the Condorcet winner if there is one

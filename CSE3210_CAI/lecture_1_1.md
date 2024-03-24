@@ -18,7 +18,7 @@
 - Collaborative AI System = Multi-Agent System
   - Decentralised computation AND control
   - CAI is the study of **SocioTechnical** system
-    - ![img.png](img.png)
+    - ![img.png](images/img.png)
 
 ## 2. Why Collaborative AI?
 - No single agent has all information of capabilities for solving a problem
